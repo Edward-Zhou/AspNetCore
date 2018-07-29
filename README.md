@@ -2,8 +2,6 @@
 Learn AspNet Core Step by Step
 
 
-# Community Channel
-QQ:837530625
 
 # Forum Support
 
