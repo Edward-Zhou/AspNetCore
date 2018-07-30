@@ -12,7 +12,7 @@ namespace StartupPro
         public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
         {
             return builder => {
-                builder.UseMiddleware<RequestMiddleware>();
+                builder.UseMiddleware<RequestFirstFilterMiddleware>();
                 next(builder);
             };
         }
