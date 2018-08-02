@@ -38,13 +38,4 @@ namespace MiddlewarePro.Middlewares
             await context.Response.WriteAsync($"Singleton Data is { singleton }; Scoped Data is { scoped }");
         }
     }
-
-    public static class MiddlewareDependencyExtensions
-    {
-        public static IApplicationBuilder UseMiddlewareDependency(
-            this IApplicationBuilder app)
-        {
-            return app.UseMiddleware<MiddlewareDependency>();
-        }
-    }
 }

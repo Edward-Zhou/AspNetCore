@@ -19,8 +19,9 @@ namespace MiddlewarePro
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                //.UseStartup<Startup>();
-                //.UseStartup<StartupMap>();
-                  .UseStartup<StartupDependency>();
+                  //.UseStartup<Startup>();
+                  //.UseStartup<StartupMap>();
+                  //.UseStartup<StartupDependency>();
+                  .UseStartup<StartupMiddlewareType>();
     }
 }
