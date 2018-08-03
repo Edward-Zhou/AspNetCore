@@ -22,6 +22,7 @@ namespace MiddlewarePro
                   //.UseStartup<Startup>();
                   //.UseStartup<StartupMap>();
                   //.UseStartup<StartupDependency>();
-                  .UseStartup<StartupMiddlewareType>();
+                  //.UseStartup<StartupMiddlewareType>();
+                  .UseStartup<StartupSimpleInjector>();
     }
 }
