@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartupPro", "StartupPro\StartupPro.csproj", "{B2E6C4E1-67B7-45C0-A171-76EF14CA8FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewarePro", "MiddlewarePro\MiddlewarePro.csproj", "{F55C18B6-9663-4E4B-9B58-36472401569F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewarePro", "MiddlewarePro\MiddlewarePro.csproj", "{F55C18B6-9663-4E4B-9B58-36472401569F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticFilePro", "StaticFilePro\StaticFilePro.csproj", "{19797936-8A8D-48D9-82F6-9E896244B409}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F55C18B6-9663-4E4B-9B58-36472401569F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F55C18B6-9663-4E4B-9B58-36472401569F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F55C18B6-9663-4E4B-9B58-36472401569F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19797936-8A8D-48D9-82F6-9E896244B409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19797936-8A8D-48D9-82F6-9E896244B409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19797936-8A8D-48D9-82F6-9E896244B409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19797936-8A8D-48D9-82F6-9E896244B409}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
