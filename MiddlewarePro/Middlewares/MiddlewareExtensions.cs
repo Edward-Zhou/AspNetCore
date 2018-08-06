@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using MiddlewarePro.MiddlewareFactoies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace MiddlewarePro.Middlewares
             this IApplicationBuilder app)
         {
             return app.UseMiddleware<MiddlewareDependency>();
+        }
+
+        public static IApplicationBuilder UseSimpleInjectorMiddleware(
+            this IApplicationBuilder app)
+        {
+            return app.UseMiddleware<SimpleInjectorMiddleware>();
         }
 
     }
