@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewarePro", "Middleware
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticFilePro", "StaticFilePro\StaticFilePro.csproj", "{19797936-8A8D-48D9-82F6-9E896244B409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperPro", "DapperPro\DapperPro.csproj", "{AD24C723-1188-49BB-9771-B15CEC93F602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperPro", "DapperPro\DapperPro.csproj", "{AD24C723-1188-49BB-9771-B15CEC93F602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelBindingPro", "ModelBindingPro\ModelBindingPro.csproj", "{A2BE86A0-512F-4446-9826-9FAEEBB243A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelBindingPro", "ModelBindingPro\ModelBindingPro.csproj", "{A2BE86A0-512F-4446-9826-9FAEEBB243A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapperPro", "AutoMapperPro\AutoMapperPro.csproj", "{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A2BE86A0-512F-4446-9826-9FAEEBB243A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BE86A0-512F-4446-9826-9FAEEBB243A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BE86A0-512F-4446-9826-9FAEEBB243A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
