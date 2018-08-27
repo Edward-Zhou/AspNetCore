@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRConsoleClient", "Sig
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentValidation", "FluentValidation", "{3EE9974C-1E01-4452-AA15-E5DA01299BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationPro", "FluentValidationPro\FluentValidationPro.csproj", "{939D8142-2C4A-4D8A-8842-4D8FE3604436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationPro", "FluentValidationPro\FluentValidationPro.csproj", "{939D8142-2C4A-4D8A-8842-4D8FE3604436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionsPro", "OptionsPro\OptionsPro.csproj", "{287903DA-F32F-4FC9-9A4E-FDDD44177B3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{287903DA-F32F-4FC9-9A4E-FDDD44177B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{287903DA-F32F-4FC9-9A4E-FDDD44177B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{287903DA-F32F-4FC9-9A4E-FDDD44177B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{287903DA-F32F-4FC9-9A4E-FDDD44177B3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
