@@ -13,7 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperPro", "DapperPro\Dapp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelBindingPro", "ModelBindingPro\ModelBindingPro.csproj", "{A2BE86A0-512F-4446-9826-9FAEEBB243A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapperPro", "AutoMapperPro\AutoMapperPro.csproj", "{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMapperPro", "AutoMapperPro\AutoMapperPro.csproj", "{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRPro", "SignalRPro", "{5DD68112-696E-4FCB-8290-590E71A175B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRServer", "SignalRPro\SignalRServer\SignalRServer.csproj", "{EFC8001A-D8C3-4B67-BA18-2DB05840CC40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRConsoleClient", "SignalRPro\SignalRConsoleClient\SignalRConsoleClient.csproj", "{3D482E02-B5E6-4219-8EAF-4B093350B366}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentValidation", "FluentValidation", "{3EE9974C-1E01-4452-AA15-E5DA01299BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationPro", "FluentValidationPro\FluentValidationPro.csproj", "{939D8142-2C4A-4D8A-8842-4D8FE3604436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +55,26 @@ Global
 		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82678C7D-E8BF-4E3F-8C99-9D5578A789AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC8001A-D8C3-4B67-BA18-2DB05840CC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC8001A-D8C3-4B67-BA18-2DB05840CC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC8001A-D8C3-4B67-BA18-2DB05840CC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC8001A-D8C3-4B67-BA18-2DB05840CC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D482E02-B5E6-4219-8EAF-4B093350B366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D482E02-B5E6-4219-8EAF-4B093350B366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D482E02-B5E6-4219-8EAF-4B093350B366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D482E02-B5E6-4219-8EAF-4B093350B366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939D8142-2C4A-4D8A-8842-4D8FE3604436}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFC8001A-D8C3-4B67-BA18-2DB05840CC40} = {5DD68112-696E-4FCB-8290-590E71A175B2}
+		{3D482E02-B5E6-4219-8EAF-4B093350B366} = {5DD68112-696E-4FCB-8290-590E71A175B2}
+		{939D8142-2C4A-4D8A-8842-4D8FE3604436} = {3EE9974C-1E01-4452-AA15-E5DA01299BCF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F26B1EC-1437-4A2A-90AB-686E4FF1EEF1}
