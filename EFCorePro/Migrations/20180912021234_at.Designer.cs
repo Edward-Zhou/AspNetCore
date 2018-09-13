@@ -12,9 +12,10 @@ using System;
 namespace EFCorePro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180912021234_at")]
+    partial class at
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,70 +113,6 @@ namespace EFCorePro.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("RoleName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("RoleId");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<Guid>("UserRoleId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRole");
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRoleRelationship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ChildUserRoleId");
-
-                    b.Property<int>("ParentUserRoleId");
-
-                    b.Property<Guid>("UserRoleRelationshipId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ChildUserRoleId");
-
-                    b.HasIndex("ParentUserRoleId");
-
-                    b.ToTable("UserRoleRelationship");
                 });
 
             modelBuilder.Entity("EFCorePro.Models.TodoItem", b =>
@@ -309,32 +246,6 @@ namespace EFCorePro.Migrations
                     b.HasOne("EFCorePro.Models.ManyToMany.Tag", "Tag")
                         .WithMany("ArticleTags")
                         .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRole", b =>
-                {
-                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRoleRelationship", b =>
-                {
-                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ChildUserRole")
-                        .WithMany()
-                        .HasForeignKey("ChildUserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ParentUserRole")
-                        .WithMany()
-                        .HasForeignKey("ParentUserRoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

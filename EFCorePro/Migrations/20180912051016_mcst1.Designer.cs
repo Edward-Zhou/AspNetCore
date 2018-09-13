@@ -12,9 +12,10 @@ using System;
 namespace EFCorePro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180912051016_mcst1")]
+    partial class mcst1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,7 +166,7 @@ namespace EFCorePro.Migrations
 
                     b.Property<int>("ChildUserRoleId");
 
-                    b.Property<int>("ParentUserRoleId");
+                    b.Property<int?>("ParentUserRoleId");
 
                     b.Property<Guid>("UserRoleRelationshipId");
 
@@ -334,8 +335,7 @@ namespace EFCorePro.Migrations
 
                     b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ParentUserRole")
                         .WithMany()
-                        .HasForeignKey("ParentUserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ParentUserRoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

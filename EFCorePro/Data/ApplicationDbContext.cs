@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using EFCorePro.Models;
 using EFCorePro.ValueGenerators;
+using EFCorePro.Models.ManyToMany;
+using EFCorePro.Models.MultipleColumnsSameTable;
 
 namespace EFCorePro.Data
 {
@@ -16,6 +18,12 @@ namespace EFCorePro.Data
         {
         }
         public DbSet<TodoItem> TodoItem { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<UserRoleRelationship> UserRoleRelationship { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<User> User { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -25,6 +33,12 @@ namespace EFCorePro.Data
             builder.Entity<TodoItem>()
                    .Property(t => t.Id)
                    .HasValueGenerator<IDValueGenerator>();
+            builder.Entity<Article>()
+                   .HasMany(a => a.ArticleTags)
+                   .WithOne(a => a.Article);
+            builder.Entity<Tag>()
+                   .HasMany(t => t.ArticleTags)
+                   .WithOne(t => t.Tag);
         }
     }
 }
