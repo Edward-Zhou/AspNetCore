@@ -14,7 +14,7 @@ namespace RouterPro.Controllers
         {
             return View();
         }
-
+        [Route("Test")]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
