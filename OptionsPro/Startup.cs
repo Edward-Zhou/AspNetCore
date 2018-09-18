@@ -28,7 +28,7 @@ namespace OptionsPro
             services.Configure<JwtOptions>(Configuration.GetSection("JWT"));
             var serviceProvider = services.BuildServiceProvider();
             var opt = serviceProvider.GetRequiredService<IOptions<JwtOptions>>().Value;
-            services.AddJwtAuthentication(opt.Issuer, opt.Key);
+            //services.AddJwtAuthentication(opt.Issuer, opt.Key);
             services.AddJwtAuthentication(opt);
 
             services.AddMvc();
