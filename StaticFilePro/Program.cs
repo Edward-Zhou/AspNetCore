@@ -19,7 +19,8 @@ namespace StaticFilePro
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                //.UseStartup<Startup>();
-                .UseStartup<StartupFileServer>();
+                  //.UseStartup<Startup>();
+                  //.UseStartup<StartupFileServer>();
+                  .UseStartup<StartupFileDownload>();
     }
 }
