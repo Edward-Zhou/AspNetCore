@@ -46,6 +46,8 @@ namespace EFCorePro.Controllers
         // GET: Articles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //var article1 = _context.Articles.Include(a => a.ArticleName == "A1")
+            //                                .SingleOrDefault();
             var article = _context.Articles
                                   .Include(a => a.ArticleTags).ThenInclude(at => at.Tag)
                                   .FirstOrDefault(a => a.Id == id);
