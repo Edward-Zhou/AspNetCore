@@ -29,6 +29,20 @@ namespace EFCorePro.Controllers
             return View(await _context.Articles.ToListAsync());
         }
 
+        public async Task<IActionResult> GetAllArticleAsync()
+        {
+            var articles = await _context.Articles
+                                   .Include(a => a.ArticleTags)
+                                   .ThenInclude(at => at.Tag)
+                                   .Select(a => new
+                                   {
+                                       Id = a.Id,
+                                       ArticleName = a.ArticleName,
+                                       Tags = a.ArticleTags.Select(at => at.Tag).ToList()
+                                   })
+                                   .ToListAsync();
+            return Ok(articles);
+        }
         // GET: Articles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
