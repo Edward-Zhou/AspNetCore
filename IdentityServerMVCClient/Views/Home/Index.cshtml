@@ -1,10 +1,6 @@
 ﻿@{
-    //ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page";
 }
-@using Microsoft.AspNetCore.Mvc.Localization
-@using Microsoft.AspNetCore.Mvc.Routing
-
-@inject IViewLocalizer Localizer
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
@@ -57,9 +53,6 @@
     </a>
 </div>
 
-<label>@Localizer["HomeController"]</label>
-<div data-collapse class="left-justify" id="requirements">
-</div>
 <div class="row">
     <div class="col-md-3">
         <h2>Application uses</h2>
