@@ -67,6 +67,7 @@ namespace IdentityServerWithAspNetCoreIdentity
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
+                .AddDeveloperSigningCredential()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
@@ -81,7 +82,11 @@ namespace IdentityServerWithAspNetCoreIdentity
             //        .AddInMemoryClients(Config.GetClients())
             //        .AddAspNetIdentity<IdentityUser>();
 
-            services.AddAuthentication()
+            services.AddAuthentication(config => {
+                config.DefaultScheme = IdentityConstants.ApplicationScheme;
+                config.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+                config.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+            })
                     .AddMicrosoftAccount(microsoftOptions =>
                     {
                         microsoftOptions.ClientId = "c73f9fe1-72df-43e7-a291-d9c3620c8667";

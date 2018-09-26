@@ -49,10 +49,10 @@ namespace IdentityServerMVCClient
 
             services.AddAuthentication(options =>
                     {
-                        options.DefaultScheme = "Cookies";
+                        options.DefaultScheme = IdentityConstants.ApplicationScheme;
                         options.DefaultChallengeScheme = "oidc";
                     })
-                   .AddCookie("Cookies")
+                   .AddCookie(IdentityConstants.ApplicationScheme)
                    .AddOpenIdConnect("oidc", "OpenID Connect", options =>
                    {
                        options.SignInScheme = IdentityConstants.ApplicationScheme;
