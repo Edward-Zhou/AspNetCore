@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Serilog;
 
 namespace SerilogPro.Controllers
 {
@@ -20,6 +21,8 @@ namespace SerilogPro.Controllers
         [HttpGet]
         public IEnumerable<string> Get(string password)
         {
+
+            Log.Logger.Information("Hello, world!");
             _log.LogInformation(JsonConvert.SerializeObject(new string[] { "value1", "value2" }));
             return new string[] { "value1", "value2" };
         }
