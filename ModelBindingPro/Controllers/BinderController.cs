@@ -32,7 +32,12 @@ namespace ModelBindingPro.Controllers
         {
 
         }
-        
+        [HttpPost]
+        [Route("[action]")]
+        public void FormSubProperty(Order order)
+        {
+
+        }
         // PUT: api/Binder/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
