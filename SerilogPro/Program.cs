@@ -19,8 +19,8 @@ namespace SerilogPro
         {
             return WebHost.CreateDefaultBuilder(args)
                             //.ConfigureLogging((hostingContext, builder) => builder.AddFile("Logs/app-{Date}.txt"))
-                            //.UseStartup<Startup>()
-                            .UseStartup<StartupEFCore>()
+                            .UseStartup<StartupConfiguration>()
+                            //.UseStartup<StartupEFCore>()
                             .Build();
         }
     }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using SerilogPro.Data;
+using SerilogPro.Enrichers;
 using SerilogPro.Extensions;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,7 @@ namespace SerilogPro
         {
             Log.Logger = new LoggerConfiguration()
                                 .WriteTo.EntityFrameworkCoreSink(app.ApplicationServices)
+                                .Enrich.FromLogContext()
                                 .CreateLogger();
             loggerFactory.AddSerilog();
             if (env.IsDevelopment())
@@ -51,7 +53,7 @@ namespace SerilogPro
             }
 
             app.UseStaticFiles();
-
+            app.UseMiddleware<UserNameEnricher>();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

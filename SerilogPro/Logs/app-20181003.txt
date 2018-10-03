@@ -1,0 +1,2 @@
+2018-10-03 15:50:50.679 +08:00 [Information] Hello, world! WICRESOFT\edwardzh SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 

@@ -10,6 +10,7 @@ using DapperPro.Models;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Dapper;
+using DapperPro.Extensions;
 
 namespace DapperPro.Controllers
 {
@@ -17,12 +18,14 @@ namespace DapperPro.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
-
+        private readonly DbConnection _dbConnection;
         public CustomersController(ApplicationDbContext context
-            , IConfiguration configuration)
+            , IConfiguration configuration
+            , DbConnection dbConnection)
         {
             _context = context;
             _configuration = configuration;
+            _dbConnection = dbConnection;
         }
 
         // GET: Customers
@@ -48,12 +51,17 @@ namespace DapperPro.Controllers
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 //string sQuery = "SELECT Name FROM Customer WHERE Id = @Id";
-                string sQuery = "SELECT *, JSON_VALUE (Attributes, '$.year') AS Year FROM  Customer WHERE JSON_VALUE(Attributes, '$.year') = '2018'";
-                var customerDapper = connection.QueryFirstOrDefault<CustomerVM>(sQuery);
+                string sQuery = "SELECT *, JSON_VALUE (Attributes, '$.year') AS Year FROM  Customer WHERE JSON_VALUE(Attributes, '$.year') = @Year";
 
-                var customerEF = await _context.Customer.FromSql(sQuery).ToListAsync();
+                var year = new SqlParameter("Year", "2018 or 1=1");
 
-                return View(customerDapper);
+                //var customerDapper = connection.QueryFirstOrDefault<CustomerVM>(sQuery, year);
+
+                var customerEF = await _context.Customer.FromSql(sQuery, year).ToListAsync();
+
+                _dbConnection.Connect();
+
+                return View(customerEF);
             }
 
         }

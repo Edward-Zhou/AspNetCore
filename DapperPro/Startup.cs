@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using DapperPro.Data;
 using DapperPro.Models;
 using DapperPro.Services;
+using DapperPro.Extensions;
 
 namespace DapperPro
 {
@@ -32,7 +33,7 @@ namespace DapperPro
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddTransient<DbConnection>(serviceProvider => new DbConnection(Configuration.GetConnectionString("DefaultConnection")));
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 

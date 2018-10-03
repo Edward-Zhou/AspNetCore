@@ -76,6 +76,8 @@ namespace DapperPro.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Attributes");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
