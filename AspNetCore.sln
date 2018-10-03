@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRServer", "SignalRPro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRConsoleClient", "SignalRPro\SignalRConsoleClient\SignalRConsoleClient.csproj", "{3D482E02-B5E6-4219-8EAF-4B093350B366}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentValidation", "FluentValidation", "{3EE9974C-1E01-4452-AA15-E5DA01299BCF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{3EE9974C-1E01-4452-AA15-E5DA01299BCF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationPro", "FluentValidationPro\FluentValidationPro.csproj", "{939D8142-2C4A-4D8A-8842-4D8FE3604436}"
 EndProject
@@ -65,9 +65,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Options", "Options", "{15B5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StaticFile", "StaticFile", "{148B53D6-97C7-4799-9B1D-77123B7856E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerWithAspNetCoreIdentity", "IdentityServerWithAspNetCoreIdentity\IdentityServerWithAspNetCoreIdentity.csproj", "{40BF8C51-35D1-4C83-ACE2-146B06699238}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerWithAspNetCoreIdentity", "IdentityServerWithAspNetCoreIdentity\IdentityServerWithAspNetCoreIdentity.csproj", "{40BF8C51-35D1-4C83-ACE2-146B06699238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerMVCClient", "IdentityServerMVCClient\IdentityServerMVCClient.csproj", "{0EF9FA8B-0925-4EDC-833A-7E0FF38B38CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerMVCClient", "IdentityServerMVCClient\IdentityServerMVCClient.csproj", "{0EF9FA8B-0925-4EDC-833A-7E0FF38B38CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

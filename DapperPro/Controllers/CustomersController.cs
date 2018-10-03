@@ -47,11 +47,15 @@ namespace DapperPro.Controllers
             //}
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
-                string sQuery = "SELECT Name FROM Customer WHERE Id = @Id";
-                var customer = connection.QueryFirstOrDefault<string>(sQuery, new { Id = id});
-                return View(customer);
+                //string sQuery = "SELECT Name FROM Customer WHERE Id = @Id";
+                string sQuery = "SELECT *, JSON_VALUE (Attributes, '$.year') AS Year FROM  Customer WHERE JSON_VALUE(Attributes, '$.year') = '2018'";
+                var customerDapper = connection.QueryFirstOrDefault<CustomerVM>(sQuery);
 
+                var customerEF = await _context.Customer.FromSql(sQuery).ToListAsync();
+
+                return View(customerDapper);
             }
+
         }
 
         // GET: Customers/Create

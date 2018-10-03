@@ -19,7 +19,7 @@ namespace EFCorePro
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+                .UseStartup<StartupMongoDb>()
                 .Build();
     }
 }
