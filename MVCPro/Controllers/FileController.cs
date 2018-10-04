@@ -16,5 +16,10 @@ namespace MVCPro.Controllers
         {
             return Ok("Work");
         }
+        [HttpPost("ImportImage")]
+        public async Task<IActionResult> ImportImage(IFormFile file, [FromForm]string folderName)
+        {
+            return Ok("Work");
+        }
     }
 }

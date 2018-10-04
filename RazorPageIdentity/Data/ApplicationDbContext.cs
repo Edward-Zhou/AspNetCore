@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RazorPageIdentity.Models;
 
 namespace RazorPageIdentity.Data
 {
@@ -12,5 +13,6 @@ namespace RazorPageIdentity.Data
             : base(options)
         {
         }
+        public DbSet<ApplicationClaims> ApplicationClaims { get; set; }
     }
 }

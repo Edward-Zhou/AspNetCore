@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorPageIdentity.Requirements;
 
 namespace RazorPageIdentity.Pages
 {
+    [MultiplePolicysAuthorize("Assets View;Assets Edit;Assets Delete")]
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
