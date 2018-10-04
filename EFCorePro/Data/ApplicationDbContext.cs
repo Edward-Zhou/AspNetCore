@@ -8,6 +8,10 @@ using EFCorePro.Models;
 using EFCorePro.ValueGenerators;
 using EFCorePro.Models.ManyToMany;
 using EFCorePro.Models.MultipleColumnsSameTable;
+using EFCorePro.Models.EFCore;
+using System.Data.Common;
+using System.Data;
+using System.Reflection;
 
 namespace EFCorePro.Data
 {
@@ -24,6 +28,7 @@ namespace EFCorePro.Data
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
+        //public DbSet<Order> Order { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -39,6 +44,8 @@ namespace EFCorePro.Data
             builder.Entity<Tag>()
                    .HasMany(t => t.ArticleTags)
                    .WithOne(t => t.Tag);
+
+            builder.Query<ToDoItemVM>();
         }
     }
 }
