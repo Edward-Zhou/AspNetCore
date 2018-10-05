@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  coredocker:
+    image: ${DOCKER_REGISTRY}coredocker
+    build:
+      context: .
+      dockerfile: CoreDocker\Dockerfile

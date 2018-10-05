@@ -69,7 +69,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerWithAspNetCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerMVCClient", "IdentityServerMVCClient\IdentityServerMVCClient.csproj", "{0EF9FA8B-0925-4EDC-833A-7E0FF38B38CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPageIdentity", "RazorPageIdentity\RazorPageIdentity.csproj", "{DF79337E-6B14-4752-BF89-2ADCBED2A7C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPageIdentity", "RazorPageIdentity\RazorPageIdentity.csproj", "{DF79337E-6B14-4752-BF89-2ADCBED2A7C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{5AA94CC6-880A-4589-91B0-9B9303547EF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDocker", "CoreDocker\CoreDocker.csproj", "{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B865F4AA-065B-4C2E-BF02-86232E459B19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +167,14 @@ Global
 		{DF79337E-6B14-4752-BF89-2ADCBED2A7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF79337E-6B14-4752-BF89-2ADCBED2A7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF79337E-6B14-4752-BF89-2ADCBED2A7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B865F4AA-065B-4C2E-BF02-86232E459B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B865F4AA-065B-4C2E-BF02-86232E459B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B865F4AA-065B-4C2E-BF02-86232E459B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B865F4AA-065B-4C2E-BF02-86232E459B19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +198,7 @@ Global
 		{40BF8C51-35D1-4C83-ACE2-146B06699238} = {08EDF4E6-8280-4BF8-AC88-83F007D8B407}
 		{0EF9FA8B-0925-4EDC-833A-7E0FF38B38CB} = {08EDF4E6-8280-4BF8-AC88-83F007D8B407}
 		{DF79337E-6B14-4752-BF89-2ADCBED2A7C7} = {08EDF4E6-8280-4BF8-AC88-83F007D8B407}
+		{77F5819E-03A0-4A5C-A83B-DA0A70D9DD7B} = {5AA94CC6-880A-4589-91B0-9B9303547EF2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F26B1EC-1437-4A2A-90AB-686E4FF1EEF1}
