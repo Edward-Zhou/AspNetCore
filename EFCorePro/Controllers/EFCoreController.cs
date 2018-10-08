@@ -16,9 +16,12 @@ namespace EFCorePro.Controllers
     public class EFCoreController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public EFCoreController(ApplicationDbContext context)
+        private readonly EFCoreDbContext _eFCoreDbContext;
+        public EFCoreController(ApplicationDbContext context
+            , EFCoreDbContext eFCoreDbContext)
         {
             _context = context;
+            _eFCoreDbContext = eFCoreDbContext;
         }
         [HttpGet]
         [Route("[action]")]
@@ -30,6 +33,15 @@ namespace EFCorePro.Controllers
             //var result2 = await _context.Query<ToDoItemVM>().FromSql("execute [dbo].[get_TodoItem]").ToListAsync();
             var result = _context.RawSqlQuery<ToDoItemVM>("execute [dbo].[get_TodoItem]");
             return Ok(result);
+        }
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> LazyLoad()
+        {
+            var junctionClassList = _eFCoreDbContext.JunctionClass
+                                     .Include(jc => jc.ClassA)
+                                     .Include(jc => jc.ClassB).ToList();
+            return Ok(junctionClassList);
         }
     }
 }
