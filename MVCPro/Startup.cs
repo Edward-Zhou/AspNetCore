@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVCPro.ActionFilters;
+using MVCPro.Services;
 
 namespace MVCPro
 {
@@ -31,6 +32,10 @@ namespace MVCPro
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IUserResolverService, UserResolverService>();
+            services.AddTransient<TokenAuthorizeFilter>();
 
             services.AddScoped<RequestLoggerActionFilter>();
             services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
