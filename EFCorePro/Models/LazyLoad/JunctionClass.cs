@@ -9,8 +9,8 @@ namespace EFCorePro.Models.LazyLoad
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ClassA ClassA { get; set; }
-        public ClassB ClassB { get; set; }
+        public virtual ClassA ClassA { get; set; }
+        public virtual ClassB ClassB { get; set; }
 
     }
     public class ClassA
