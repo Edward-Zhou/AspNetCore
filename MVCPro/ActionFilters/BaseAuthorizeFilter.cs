@@ -11,8 +11,8 @@ namespace MVCPro.ActionFilters
 {
     public class BaseAuthorizeFilter : IAuthorizationFilter, IActionFilter
     {
-        public static ClaimsIdentity _User;
-        public static IHttpContextAccessor _accessor;
+        public ClaimsIdentity _User;
+        public IHttpContextAccessor _accessor;
 
         public BaseAuthorizeFilter(IUserResolverService userService, IHttpContextAccessor accessor)
         {

@@ -35,7 +35,7 @@ namespace MVCPro
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IUserResolverService, UserResolverService>();
-            services.AddTransient<TokenAuthorizeFilter>();
+            services.AddScoped<TokenAuthorizeFilter>();
 
             services.AddScoped<RequestLoggerActionFilter>();
             services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
@@ -59,9 +59,9 @@ namespace MVCPro
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

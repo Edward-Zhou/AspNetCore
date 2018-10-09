@@ -40,37 +40,40 @@ namespace RazorPageIdentity
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<IdentityUser>(options =>
+                {
+                    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+'#!/^%{}*";
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthorization(options =>
             {
-                var dbContext = SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder<ApplicationDbContext>(),
-                            Configuration.GetConnectionString("DefaultConnection")).Options;
+                //var dbContext = SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder<ApplicationDbContext>(),
+                //            Configuration.GetConnectionString("DefaultConnection")).Options;
 
-                var dbCon = new ApplicationDbContext(dbContext);
-                //Getting the list of application claims.
-                var applicationClaims = dbCon.ApplicationClaims.ToList();
-                var strClaimValues = string.Empty;
-                List<ApplicationClaims> lstClaimTypeVM = new List<ApplicationClaims>();
-                IEnumerable<string> lstClaimValueVM = null;// new IEnumerable<string>();
+                //var dbCon = new ApplicationDbContext(dbContext);
+                ////Getting the list of application claims.
+                //var applicationClaims = dbCon.ApplicationClaims.ToList();
+                //var strClaimValues = string.Empty;
+                //List<ApplicationClaims> lstClaimTypeVM = new List<ApplicationClaims>();
+                //IEnumerable<string> lstClaimValueVM = null;// new IEnumerable<string>();
 
-                lstClaimTypeVM = (from dbAppClaim
-                              in dbCon.ApplicationClaims
-                                  select new ApplicationClaims
-                                  {
-                                      ClaimType = dbAppClaim.ClaimType
-                                  }).Distinct().ToList();
+                //lstClaimTypeVM = (from dbAppClaim
+                //              in dbCon.ApplicationClaims
+                //                  select new ApplicationClaims
+                //                  {
+                //                      ClaimType = dbAppClaim.ClaimType
+                //                  }).Distinct().ToList();
 
-                foreach (ApplicationClaims objClaimType in lstClaimTypeVM)
-                {
-                    lstClaimValueVM = (from dbClaimValues in dbCon.ApplicationClaims
-                                       where dbClaimValues.ClaimType == objClaimType.ClaimType
-                                       select dbClaimValues.ClaimValue).ToList();
+                //foreach (ApplicationClaims objClaimType in lstClaimTypeVM)
+                //{
+                //    lstClaimValueVM = (from dbClaimValues in dbCon.ApplicationClaims
+                //                       where dbClaimValues.ClaimType == objClaimType.ClaimType
+                //                       select dbClaimValues.ClaimValue).ToList();
 
-                    options.AddPolicy(objClaimType.ClaimType, policy => policy.RequireClaim(objClaimType.ClaimType, lstClaimValueVM));
-                    lstClaimValueVM = null;
-                }
+                //    options.AddPolicy(objClaimType.ClaimType, policy => policy.RequireClaim(objClaimType.ClaimType, lstClaimValueVM));
+                //    lstClaimValueVM = null;
+                //}
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
