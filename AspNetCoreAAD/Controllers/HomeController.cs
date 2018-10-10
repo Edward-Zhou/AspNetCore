@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using AspNetCoreAAD.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+using AspNetCoreAAD.RequirementHandlers;
 
 namespace AspNetCoreAAD.Controllers
 {
@@ -19,7 +20,8 @@ namespace AspNetCoreAAD.Controllers
         {
             return View();
         }
-        [Authorize(Policy = "MyPolicy")]
+        //[AllowAnonymous]
+        [AllowAnonymousWithPolicy("MyPolicy")]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
