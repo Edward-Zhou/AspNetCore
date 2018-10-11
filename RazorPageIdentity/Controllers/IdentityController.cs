@@ -48,5 +48,24 @@ namespace RazorPageIdentity.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> CreateUser()
+        {
+            var newAppUser = new IdentityUser
+            {
+                UserName = @"!#$%^*()~`-=_+[]{}\|;:', ./<>?©®",
+                NormalizedUserName = @"!#$%^*()~`-=_+[]{}\|;:', ./<>?©®",
+                Email = "nothing@nothing.com",
+                NormalizedEmail = "nothing@nothing.com".ToUpper(),
+                LockoutEnabled = true,
+                LockoutEnd = DateTime.Now
+            };
+
+            string password = "1qaz@WSX";
+            var result = await _userManager.CreateAsync(newAppUser, password);
+            return Ok();
+        }
     }
 }

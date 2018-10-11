@@ -15,6 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authorization;
 using RazorPageIdentity.Models;
 using RazorPageIdentity.Extensions;
+using RazorPageIdentity.Custom;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace RazorPageIdentity
 {
@@ -45,7 +48,26 @@ namespace RazorPageIdentity
                     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+'#!/^%{}*";
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            var descriptor =
+                new ServiceDescriptor(
+                    typeof(CookieAuthenticationHandler),
+                    typeof(CustomCookieAuthenticationHandler),
+                    ServiceLifetime.Transient);
+            services.Replace(descriptor);
+            services.ConfigureApplicationCookie(options => {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+            });
+        //    services.AddAuthentication(options =>
+        //    {
+        //        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+        //        options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+        //        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+        //    })
+        //.AddScheme<CookieAuthenticationOptions, CustomCookieAuthenticationHandler>(
+        //        CookieAuthenticationDefaults.AuthenticationScheme,
+        //        null,
+        //        null
+        //        );
             services.AddAuthorization(options =>
             {
                 //var dbContext = SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder<ApplicationDbContext>(),
