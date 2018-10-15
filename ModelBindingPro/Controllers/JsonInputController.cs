@@ -17,5 +17,12 @@ namespace ModelBindingPro.Controllers
         {
 
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Post(string base64Data)
+        {
+            var base64 = Request.Form["base64Data"];
+            return Ok();
+        }
     }
 }

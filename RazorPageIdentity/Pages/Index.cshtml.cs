@@ -12,6 +12,7 @@ namespace RazorPageIdentity.Pages
     {
         public void OnGet()
         {
+            
         }
     }
 }
