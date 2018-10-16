@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EFCorePro.migrations.efcore
+namespace EFCorePro.Migrations.efcore
 {
-    [DbContext(typeof(EFCoreDbContext))]
-    [Migration("20181008021543_init1")]
-    partial class init1
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20181016030337_mvcmodel")]
+    partial class mvcmodel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,51 +72,192 @@ namespace EFCorePro.migrations.efcore
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("EFCorePro.Models.LazyLoad.ClassA", b =>
+            modelBuilder.Entity("EFCorePro.Models.EFCore.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Address");
+
+                    b.Property<DateTime>("CreationDate");
+
+                    b.Property<string>("OrderNo");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ClassA");
+                    b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("EFCorePro.Models.LazyLoad.ClassB", b =>
+            modelBuilder.Entity("EFCorePro.Models.ManyToMany.Article", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("ArticleName");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ClassB");
+                    b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("EFCorePro.Models.LazyLoad.JunctionClass", b =>
+            modelBuilder.Entity("EFCorePro.Models.ManyToMany.ArticleTag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClassAId");
+                    b.Property<int>("ArticleId");
 
-                    b.Property<int?>("ClassBId");
+                    b.Property<int>("TagId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ArticleTag");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.ManyToMany.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TagName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("RoleName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RoleId");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<Guid>("UserRoleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRole");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRoleRelationship", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ChildUserRoleId");
+
+                    b.Property<int?>("ParentUserRoleId");
+
+                    b.Property<Guid>("UserRoleRelationshipId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChildUserRoleId");
+
+                    b.HasIndex("ParentUserRoleId");
+
+                    b.ToTable("UserRoleRelationship");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MVCModel.MVCModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<decimal>("NoInvoAb");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MVCModel");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.TodoItem", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<bool>("IsComplete");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassAId");
+                    b.ToTable("TodoItem");
+                });
 
-                    b.HasIndex("ClassBId");
+            modelBuilder.Entity("EFCorePro.Models.UnionTable.FirstTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.ToTable("JunctionClass");
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FirstTable");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.UnionTable.SecondTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Label");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SecondTable");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -229,15 +370,42 @@ namespace EFCorePro.migrations.efcore
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EFCorePro.Models.LazyLoad.JunctionClass", b =>
+            modelBuilder.Entity("EFCorePro.Models.ManyToMany.ArticleTag", b =>
                 {
-                    b.HasOne("EFCorePro.Models.LazyLoad.ClassA", "ClassA")
-                        .WithMany()
-                        .HasForeignKey("ClassAId");
+                    b.HasOne("EFCorePro.Models.ManyToMany.Article", "Article")
+                        .WithMany("ArticleTags")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("EFCorePro.Models.LazyLoad.ClassB", "ClassB")
+                    b.HasOne("EFCorePro.Models.ManyToMany.Tag", "Tag")
+                        .WithMany("ArticleTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRole", b =>
+                {
+                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("ClassBId");
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.MultipleColumnsSameTable.UserRoleRelationship", b =>
+                {
+                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ChildUserRole")
+                        .WithMany()
+                        .HasForeignKey("ChildUserRoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ParentUserRole")
+                        .WithMany()
+                        .HasForeignKey("ParentUserRoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

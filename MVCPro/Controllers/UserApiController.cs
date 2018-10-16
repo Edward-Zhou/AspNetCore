@@ -15,5 +15,21 @@ namespace MVCPro.Controllers
         {
             return null;
         }
+
+        [HttpGet("{page}/{itemsPerPage}", Name = "GetBookWithPagination")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200)]
+        public async Task<ActionResult> Get(int page, int itemsPerPage, string filter)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
     }
 }

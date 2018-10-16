@@ -43,5 +43,18 @@ namespace EFCorePro.Controllers
                                      .Include(jc => jc.ClassB).ToList();
             return Ok(junctionClassList);
         }
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<IActionResult> UnionTables(int id)
+        {
+            var answerText =await (from f in _context.FirstTable.Where(ft => ft.Id == id)
+                              select f.Value)
+                             .Union(
+                              from s in _context.SecondTable.Where(st => st.Id == id)
+                              select s.Label)
+                             .FirstOrDefaultAsync();
+                             
+            return Ok(answerText);
+        }
     }
 }

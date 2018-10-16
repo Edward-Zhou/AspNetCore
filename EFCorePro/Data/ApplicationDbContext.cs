@@ -12,6 +12,8 @@ using EFCorePro.Models.EFCore;
 using System.Data.Common;
 using System.Data;
 using System.Reflection;
+using EFCorePro.Models.UnionTable;
+using EFCorePro.Models.MVCModel;
 
 namespace EFCorePro.Data
 {
@@ -28,7 +30,10 @@ namespace EFCorePro.Data
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
-        //public DbSet<Order> Order { get; set; }
+        public DbSet<FirstTable> FirstTable { get; set; }
+        public DbSet<SecondTable> SecondTable { get; set; }
+        public DbSet<MVCModel> MVCModel { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

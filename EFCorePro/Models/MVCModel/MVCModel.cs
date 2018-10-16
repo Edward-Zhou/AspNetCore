@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVCPro.Models
+namespace EFCorePro.Models.MVCModel
 {
     public class MVCModel
     {
+        public int Id { get; set; }
         [Required]
         [DisplayFormat(DataFormatString = "{0:0}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ordered")]
@@ -15,7 +16,9 @@ namespace MVCPro.Models
 
         [Display(Name = "Created on")]
         [UIHint("DateDisabled")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
+        [DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"{0:dd\/MM\/yyyy}")]
         public DateTime? CreationDate { get; set; }
+
     }
 }

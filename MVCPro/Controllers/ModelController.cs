@@ -18,6 +18,17 @@ namespace MVCPro.Controllers
             var model = new MVCModel { NoInvoAb = 2 };
             return View(model);
         }
+        [HttpGet]
+        public async Task<ActionResult> Update()
+        {
+            return View(new MVCModel { NoInvoAb = 5 ,CreationDate = DateTime.Now });
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Update(MVCModel viewModel)
+        {
+            return View(viewModel);
+        }
     }
 }
