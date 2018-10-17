@@ -21,6 +21,6 @@ namespace StaticFilePro
             WebHost.CreateDefaultBuilder(args)
                   //.UseStartup<Startup>();
                   //.UseStartup<StartupFileServer>();
-                  .UseStartup<StartupFileDownload>();
+                  .UseStartup<StartupFileType>();
     }
 }
