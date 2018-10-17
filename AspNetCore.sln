@@ -87,9 +87,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelBindingPro2_1", "Model
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hangfire", "Hangfire", "{08A007A8-1D13-4447-98B2-0C74CB7957BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfirePro", "HangfirePro\HangfirePro.csproj", "{2FBF9367-81D5-4A7E-993F-423F0E8CECA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangfirePro", "HangfirePro\HangfirePro.csproj", "{2FBF9367-81D5-4A7E-993F-423F0E8CECA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireTestPro", "HangfireTestPro\HangfireTestPro.csproj", "{30D7EBB1-7072-4A5B-ABAE-D13829593936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangfireTestPro", "HangfireTestPro\HangfireTestPro.csproj", "{30D7EBB1-7072-4A5B-ABAE-D13829593936}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{D7310E10-D56C-4150-8E5F-06600EFF1229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionPro", "DependencyInjectionPro\DependencyInjectionPro.csproj", "{7B27FC01-F623-4A7C-BA3D-C2743945BBF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -209,6 +213,10 @@ Global
 		{30D7EBB1-7072-4A5B-ABAE-D13829593936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D7EBB1-7072-4A5B-ABAE-D13829593936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30D7EBB1-7072-4A5B-ABAE-D13829593936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B27FC01-F623-4A7C-BA3D-C2743945BBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B27FC01-F623-4A7C-BA3D-C2743945BBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B27FC01-F623-4A7C-BA3D-C2743945BBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B27FC01-F623-4A7C-BA3D-C2743945BBF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -239,6 +247,7 @@ Global
 		{08A007A8-1D13-4447-98B2-0C74CB7957BD} = {7C95ABC4-715D-428C-9CDE-AE4532301AFE}
 		{2FBF9367-81D5-4A7E-993F-423F0E8CECA8} = {08A007A8-1D13-4447-98B2-0C74CB7957BD}
 		{30D7EBB1-7072-4A5B-ABAE-D13829593936} = {08A007A8-1D13-4447-98B2-0C74CB7957BD}
+		{7B27FC01-F623-4A7C-BA3D-C2743945BBF7} = {D7310E10-D56C-4150-8E5F-06600EFF1229}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F26B1EC-1437-4A2A-90AB-686E4FF1EEF1}
