@@ -64,9 +64,11 @@ namespace HangfirePro
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseAuthentication();
             app.UseHangfireServer();
+            RecurringJob.AddOrUpdate(() => Console.WriteLine("RecurringJob!"), Cron.Minutely);
+            BackgroundJob.Enqueue(() => Console.WriteLine("Startup BackgroundJob!"));
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -18,8 +18,8 @@ namespace HangfirePro.Controllers
         }
         public IActionResult Index()
         {
-            BackgroundJob.Enqueue(() => Console.WriteLine("BackgroundJob!"));
-            _backgroundJobClient.Enqueue(() => Console.WriteLine("IBackgroundJobClient!"));
+            //BackgroundJob.Enqueue(() => Console.WriteLine("BackgroundJob!"));
+            //_backgroundJobClient.Enqueue(() => Console.WriteLine("IBackgroundJobClient!"));
             return Ok("Send Email");
             //return View();
         }

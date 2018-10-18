@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -12,5 +12,14 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Include="..\MVCPro\shared.{Environment}.json">
+      <Link>shared.{Environment}.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <Target Name="CopyLinkedContentFiles" BeforeTargets="Build">
+    <Copy SourceFiles="..\MVCPro\shared.{Environment}.json"  DestinationFolder=".\" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true"/>
+  </Target>
 </Project>

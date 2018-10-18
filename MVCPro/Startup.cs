@@ -60,7 +60,7 @@ namespace MVCPro
                 app.UseHsts();
             }
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
 

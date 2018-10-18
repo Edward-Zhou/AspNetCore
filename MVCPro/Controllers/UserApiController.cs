@@ -16,7 +16,7 @@ namespace MVCPro.Controllers
             return null;
         }
 
-        [HttpGet("{page}/{itemsPerPage}", Name = "GetBookWithPagination")]
+        //[HttpGet("{page}/{itemsPerPage}", Name = "GetBookWithPagination")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]

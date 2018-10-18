@@ -26,6 +26,7 @@ namespace OptionsPro
         {
             services.Configure<Locations>(Configuration.GetSection("Locations"));
             services.Configure<JwtOptions>(Configuration.GetSection("JWT"));
+            services.Configure<Shared>(Configuration.GetSection("Shared"));
             var serviceProvider = services.BuildServiceProvider();
             var opt = serviceProvider.GetRequiredService<IOptions<JwtOptions>>().Value;
             //services.AddJwtAuthentication(opt.Issuer, opt.Key);

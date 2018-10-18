@@ -20,6 +20,13 @@ namespace OptionsPro
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile("shared.json", optional: true, reloadOnChange: true);
+                    config.AddJsonFile("sharedBack.json", optional: true, reloadOnChange: true);
+                    config.AddJsonFile("shared.{Environment}.json", optional: true, reloadOnChange: true);
+                })
                 .Build();
     }
 }
