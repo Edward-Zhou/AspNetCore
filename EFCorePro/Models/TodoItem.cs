@@ -12,5 +12,12 @@ namespace EFCorePro.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public bool IsComplete { get; set; }
+        public string TodoItemDetailId { get; set; }
+        public virtual TodoItemDetail TodoItemDetail { get; set; }
+    }
+    public class TodoItemDetail
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

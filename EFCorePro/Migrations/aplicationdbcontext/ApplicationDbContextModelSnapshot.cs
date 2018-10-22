@@ -223,9 +223,25 @@ namespace EFCorePro.Migrations.efcore
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("TodoItemDetailId");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("TodoItemDetailId");
+
                     b.ToTable("TodoItem");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.TodoItemDetail", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TodoItemDetail");
                 });
 
             modelBuilder.Entity("EFCorePro.Models.UnionTable.FirstTable", b =>
@@ -404,6 +420,13 @@ namespace EFCorePro.Migrations.efcore
                     b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ParentUserRole")
                         .WithMany()
                         .HasForeignKey("ParentUserRoleId");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.TodoItem", b =>
+                {
+                    b.HasOne("EFCorePro.Models.TodoItemDetail", "TodoItemDetail")
+                        .WithMany()
+                        .HasForeignKey("TodoItemDetailId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

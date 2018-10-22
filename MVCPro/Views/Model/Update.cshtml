@@ -22,6 +22,9 @@
                 <input asp-for="CreationDate" class="form-control" />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
+            @await Component.InvokeAsync("SimpleType", @Model)
+            <vc:simple-type model="@Model.MVCSubModel">
+            </vc:simple-type>
             @Html.HiddenFor(m => m.CreationDate)
             @Html.EditorFor(m => m.CreationDate)
             <div class="form-group">

@@ -13,8 +13,19 @@ namespace MVCPro.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            //var t = Task.Run(() => { return Task.FromException(new Exception("ab")); });
+
+            //try
+            //{
+            //    await t;
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //    var x = 0;
+            //}
             return View();
         }
 

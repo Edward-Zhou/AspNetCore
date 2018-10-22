@@ -24,6 +24,7 @@ namespace EFCorePro.Data
         {
         }
         public DbSet<TodoItem> TodoItem { get; set; }
+        public DbSet<TodoItemDetail> TodoItemDetail { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<UserRoleRelationship> UserRoleRelationship { get; set; }

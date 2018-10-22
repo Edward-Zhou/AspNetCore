@@ -1,4 +1,4 @@
-﻿
+﻿@model MVCPro.Models.MVCModel;
 @{
     ViewData["Title"] = "Default";
 }
@@ -7,3 +7,4 @@
 
 This is SimpleTypeViewComponent
 
+<input asp-for="@Model.MVCSubModel.Name"  class="form-control" />

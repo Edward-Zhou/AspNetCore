@@ -58,8 +58,9 @@ namespace EFCorePro.Controllers
         {
             if (ModelState.IsValid)
             {
+                todoItem.TodoItemDetailId = "Test";
                 _context.Add(todoItem);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(true);
                 return RedirectToAction(nameof(Index));
             }
             return View(todoItem);

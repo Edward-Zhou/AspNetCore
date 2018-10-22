@@ -17,5 +17,11 @@ namespace MVCPro.Models
         [UIHint("DateDisabled")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? CreationDate { get; set; }
+        public MVCSubModel MVCSubModel { get; set; }
+    }
+    public class MVCSubModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

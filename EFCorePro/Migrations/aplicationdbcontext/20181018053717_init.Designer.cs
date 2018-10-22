@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EFCorePro.Migrations.efcore
+namespace EFCorePro.Migrations.aplicationdbcontext
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181015023253_uniontables")]
-    partial class uniontables
+    [Migration("20181018053717_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -202,6 +202,21 @@ namespace EFCorePro.Migrations.efcore
                     b.ToTable("UserRoleRelationship");
                 });
 
+            modelBuilder.Entity("EFCorePro.Models.MVCModel.MVCModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<decimal>("NoInvoAb");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MVCModel");
+                });
+
             modelBuilder.Entity("EFCorePro.Models.TodoItem", b =>
                 {
                     b.Property<string>("Id");
@@ -210,9 +225,25 @@ namespace EFCorePro.Migrations.efcore
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("TodoItemDetailId");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("TodoItemDetailId");
+
                     b.ToTable("TodoItem");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.TodoItemDetail", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TodoItemDetail");
                 });
 
             modelBuilder.Entity("EFCorePro.Models.UnionTable.FirstTable", b =>
@@ -391,6 +422,13 @@ namespace EFCorePro.Migrations.efcore
                     b.HasOne("EFCorePro.Models.MultipleColumnsSameTable.UserRole", "ParentUserRole")
                         .WithMany()
                         .HasForeignKey("ParentUserRoleId");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.TodoItem", b =>
+                {
+                    b.HasOne("EFCorePro.Models.TodoItemDetail", "TodoItemDetail")
+                        .WithMany()
+                        .HasForeignKey("TodoItemDetailId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
