@@ -33,6 +33,12 @@ namespace ModelBindingPro.Controllers
 
         }
         [HttpPost]
+        [Route("UploadDoc")]
+        public async Task<IActionResult> DocumentUpload([FromForm] IList<Document> document)
+        {
+            return Ok();
+        }
+        [HttpPost]
         [Route("[action]")]
         public void FormSubProperty(Order order)
         {

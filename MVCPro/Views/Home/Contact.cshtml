@@ -20,3 +20,11 @@
 
 @Url.RouteUrl("Teacher")
 
+<vc:admin-share>
+</vc:admin-share>
+
+@await Component.InvokeAsync(typeof(MVCPro.Areas.Admin.ShareViewComponent))
+@await Component.InvokeAsync(typeof(MVCPro.Areas.User.ShareViewComponent))
+
+@await Component.InvokeAsync("SimpleType")
+

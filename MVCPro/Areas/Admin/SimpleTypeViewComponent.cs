@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVCPro.ViewComponents
+//namespace MVCPro.ViewComponents
+namespace MVCPro.Areas.Admin
 {
     public class SimpleTypeViewComponent : ViewComponent
     {

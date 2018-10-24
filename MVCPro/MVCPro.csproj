@@ -11,6 +11,13 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="ViewComponents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\Components\Share\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

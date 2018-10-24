@@ -19,6 +19,6 @@ namespace AspNetCoreAAD
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<StartupAADCustom>();
+                .UseStartup<Startup>();
     }
 }
