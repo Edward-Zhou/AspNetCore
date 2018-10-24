@@ -101,7 +101,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostAsWindowsService", "Hos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangfireMysql", "HostedServicePro\HangfireMysql\HangfireMysql.csproj", "{A7B0D970-369E-47CB-8F67-D291F75866D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostInDocker", "HostInDocker\HostInDocker.csproj", "{B444CD4E-2A12-417B-BB29-EEEF6792B464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostInDocker", "HostInDocker\HostInDocker.csproj", "{B444CD4E-2A12-417B-BB29-EEEF6792B464}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{14BA0E71-DA14-4216-96F3-BE34E678AC1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTestWithIdentity", "..\IntegrationTestWithIdentity\IntegrationTestWithIdentity.csproj", "{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{20EECC9C-1173-4F0A-B463-1E6187A19ECD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +243,14 @@ Global
 		{B444CD4E-2A12-417B-BB29-EEEF6792B464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B444CD4E-2A12-417B-BB29-EEEF6792B464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B444CD4E-2A12-417B-BB29-EEEF6792B464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EECC9C-1173-4F0A-B463-1E6187A19ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EECC9C-1173-4F0A-B463-1E6187A19ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EECC9C-1173-4F0A-B463-1E6187A19ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EECC9C-1173-4F0A-B463-1E6187A19ECD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,6 +285,8 @@ Global
 		{3899E4C7-880D-474F-98BA-CC691AD86D0E} = {58375A52-ACBC-4F5E-882F-90FD9C9930F7}
 		{A7B0D970-369E-47CB-8F67-D291F75866D9} = {08A007A8-1D13-4447-98B2-0C74CB7957BD}
 		{B444CD4E-2A12-417B-BB29-EEEF6792B464} = {58375A52-ACBC-4F5E-882F-90FD9C9930F7}
+		{EFE0A767-5AC2-49A0-B5E4-D36BF3423CD5} = {14BA0E71-DA14-4216-96F3-BE34E678AC1A}
+		{20EECC9C-1173-4F0A-B463-1E6187A19ECD} = {14BA0E71-DA14-4216-96F3-BE34E678AC1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F26B1EC-1437-4A2A-90AB-686E4FF1EEF1}
