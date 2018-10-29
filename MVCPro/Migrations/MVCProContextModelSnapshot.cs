@@ -184,6 +184,36 @@ namespace MVCPro.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MVCPro.Models.Language", b =>
+                {
+                    b.Property<Guid>("LanguageID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("LanguageName");
+
+                    b.HasKey("LanguageID");
+
+                    b.ToTable("Language");
+                });
+
+            modelBuilder.Entity("MVCPro.Models.Translation", b =>
+                {
+                    b.Property<Guid>("TranslationID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Key")
+                        .IsRequired();
+
+                    b.Property<Guid>("LanguageID");
+
+                    b.Property<string>("Value")
+                        .IsRequired();
+
+                    b.HasKey("TranslationID");
+
+                    b.ToTable("Translation","core");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")

@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVCPro.ActionFilters;
+using MVCPro.Models;
 using MVCPro.Services;
+using Newtonsoft.Json;
 
 namespace MVCPro
 {
@@ -36,7 +40,8 @@ namespace MVCPro
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IUserResolverService, UserResolverService>();
             services.AddScoped<TokenAuthorizeFilter>();
-
+            services.AddSingleton<IAuthorizationPolicyProvider, LEMClaimPolicyProvider>();
+            services.AddSingleton<IAuthorizationHandler, LEMClaimPolicyHandler>();
             services.AddScoped<RequestLoggerActionFilter>();
             services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
             services.AddMvc(c =>
@@ -63,7 +68,13 @@ namespace MVCPro
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
-
+            app.Map("/tenants", map => {
+                map.Run(async context => {
+                    var dbContext = context.RequestServices.GetRequiredService<MVCProContext>();
+                    var tenants = await dbContext.Users.ToListAsync();
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(tenants));
+                });
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

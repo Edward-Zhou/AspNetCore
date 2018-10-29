@@ -35,5 +35,15 @@ namespace MVCPro.Controllers
         {
             return View(viewModel);
         }
+        [HttpGet]
+        public async Task<IActionResult> Translation()
+        {
+            TranslationsModel translationsModel = new TranslationsModel() { Translations = new List<Translation>() };
+            translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
+            translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
+            translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
+            translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
+            return View(translationsModel);
+        }
     }
 }

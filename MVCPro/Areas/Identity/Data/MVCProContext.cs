@@ -15,6 +15,9 @@ namespace MVCPro.Models
         {
         }
 
+        public DbSet<Translation> Translation { get; set; }
+        public DbSet<Language> Language { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

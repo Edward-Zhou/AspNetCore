@@ -8,19 +8,21 @@ using Microsoft.EntityFrameworkCore;
 using EFCorePro.Data;
 using EFCorePro.Models.ManyToMany;
 using AutoMapper;
+using Newtonsoft.Json;
 
 namespace EFCorePro.Controllers
 {
     public class ArticlesController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
 
         public ArticlesController(ApplicationDbContext context
-            , IMapper mapper)
+            //, IMapper mapper
+            )
         {
             _context = context;
-            _mapper = mapper;
+           // _mapper = mapper;
         }
 
         // GET: Articles
@@ -83,7 +85,11 @@ namespace EFCorePro.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(article);
+                var newSerialInfo = new Article();
+                string values = JsonConvert.SerializeObject(new Article { ArticleName = "TT" });
+                JsonConvert.PopulateObject(values, newSerialInfo);
+                _context.Add(newSerialInfo);
+                newSerialInfo.Id = 0;
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

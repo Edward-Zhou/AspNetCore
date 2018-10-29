@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -66,6 +67,16 @@ namespace RazorPageIdentity.Controllers
             string password = "1qaz@WSX";
             var result = await _userManager.CreateAsync(newAppUser, password);
             return Ok();
+        }
+        [Authorize]
+        public IActionResult Authorize()
+        {
+            return Ok(User.Identity.Name);
+        }
+        [AllowAnonymous]
+        public IActionResult Anonymous()
+        {
+            return Ok(User.Identity.Name);
         }
     }
 }
