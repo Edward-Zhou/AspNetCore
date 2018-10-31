@@ -23,6 +23,7 @@ namespace OptionsPro
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
                     config.AddJsonFile("shared.json", optional: true, reloadOnChange: true);
                     config.AddJsonFile("sharedBack.json", optional: true, reloadOnChange: true);
                     config.AddJsonFile("shared.{Environment}.json", optional: true, reloadOnChange: true);

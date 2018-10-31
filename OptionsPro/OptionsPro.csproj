@@ -20,6 +20,6 @@
   </ItemGroup>
   
   <Target Name="CopyLinkedContentFiles" BeforeTargets="Build">
-    <Copy SourceFiles="..\MVCPro\shared.{Environment}.json"  DestinationFolder=".\" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true"/>
+    <Copy SourceFiles="..\MVCPro\shared.{Environment}.json" DestinationFolder=".\" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
   </Target>
 </Project>

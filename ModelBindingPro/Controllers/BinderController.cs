@@ -25,7 +25,20 @@ namespace ModelBindingPro.Controllers
         {
             return "value";
         }
-        
+        [HttpPost]
+        [Route("[action]")]
+        public JsonResult Save([FromBody]List<Document> entries, [FromBody]int projectId)
+        {
+            // code here
+            return Json(new { entries = new List<Document>{ new Document { FileId = "F1" } } , projectId });
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public JsonResult SaveBinder(List<Document> entries, int projectId)
+        {
+            // code here
+            return Json("OK");
+        }
         // POST: api/Binder
         [HttpPost]
         public void Post([FromForm]BinderModel value)

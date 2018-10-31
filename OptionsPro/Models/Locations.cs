@@ -8,5 +8,6 @@ namespace OptionsPro.Models
     public class Locations
     {
         public List<string> location { get; set; }
+        public string Name { get; set; }
     }
 }

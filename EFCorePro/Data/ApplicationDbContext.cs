@@ -14,14 +14,22 @@ using System.Data;
 using System.Reflection;
 using EFCorePro.Models.UnionTable;
 using EFCorePro.Models.MVCModel;
+using Microsoft.AspNetCore.Http;
 
 namespace EFCorePro.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        private readonly HttpContext httpContext;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IHttpContextAccessor httpContextAccessor)
             : base(options)
         {
+            httpContext = httpContextAccessor.HttpContext;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var connection = httpContext.Request.Headers["Connectionstring"];
+            optionsBuilder.UseSqlServer(connection);
         }
         public DbSet<TodoItem> TodoItem { get; set; }
         public DbSet<TodoItemDetail> TodoItemDetail { get; set; }

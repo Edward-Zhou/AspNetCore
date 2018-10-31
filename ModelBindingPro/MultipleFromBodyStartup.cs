@@ -1,18 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ModelBindingPro.Binders;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.ObjectPool;
+using Microsoft.Extensions.Options;
+using ModelBindingPro.InputFormatters;
+using Newtonsoft.Json;
+using System;
+using System.Buffers;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace ModelBindingPro
 {
-    public class Startup
+    public class MultipleFromBodyStartup
     {
-        public Startup(IConfiguration configuration)
+        public MultipleFromBodyStartup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -23,7 +32,14 @@ namespace ModelBindingPro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => {
-                options.ModelBinderProviders.Insert(0, new MultipleFormBinderProvider());
+                var serviceProvider = services.BuildServiceProvider();
+                var customJsonInputFormatter = new MultipleFromBodyJsonInputFormatter(
+                         serviceProvider.GetRequiredService<ILoggerFactory>().CreateLogger<MultipleFromBodyJsonInputFormatter>(),
+                         serviceProvider.GetRequiredService<IOptions<MvcJsonOptions>>().Value.SerializerSettings,
+                         serviceProvider.GetRequiredService<ArrayPool<char>>(),
+                         serviceProvider.GetRequiredService<ObjectPoolProvider>()
+                    );
+                options.InputFormatters.Insert(0, customJsonInputFormatter);
             });
         }
 
@@ -49,5 +65,6 @@ namespace ModelBindingPro
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }
