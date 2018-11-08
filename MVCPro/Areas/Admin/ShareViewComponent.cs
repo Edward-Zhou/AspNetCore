@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCPro.Areas.Admin
 {
-    [ViewComponent(Name = "AdminShare")]
+    //[ViewComponent(Name = "AdminShare")]
     public class ShareViewComponent : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()

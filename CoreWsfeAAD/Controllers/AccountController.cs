@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.WsFederation;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +17,12 @@ namespace CoreWsfeAAD.Controllers
         public IActionResult Index()
         {
             return RedirectToAction("UserClaims");
+        }
+        public IActionResult Login()
+        {
+            return Challenge(
+                new AuthenticationProperties { RedirectUri = "https://localhost:44392/" },
+                WsFederationDefaults.AuthenticationScheme);
         }
         public IActionResult SignOut()
         {

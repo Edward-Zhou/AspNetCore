@@ -37,13 +37,13 @@ namespace MVCPro
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddSingleton<IUserResolverService, UserResolverService>();
-            services.AddScoped<TokenAuthorizeFilter>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IUserResolverService, UserResolverService>();
+            //services.AddScoped<TokenAuthorizeFilter>();
             services.AddSingleton<IAuthorizationPolicyProvider, LEMClaimPolicyProvider>();
             services.AddSingleton<IAuthorizationHandler, LEMClaimPolicyHandler>();
-            services.AddScoped<RequestLoggerActionFilter>();
-            services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
+            //services.AddScoped<RequestLoggerActionFilter>();
+            //services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
             services.AddMvc(c =>
                             {
                                 //c.Filters.Add(typeof(RequestLoggerActionFilter));

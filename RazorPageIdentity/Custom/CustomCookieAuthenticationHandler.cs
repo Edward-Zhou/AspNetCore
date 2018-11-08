@@ -19,7 +19,10 @@ namespace RazorPageIdentity.Custom
             , ISystemClock clock) : base(options, logger, encoder, clock)
         {
         }
-
+        protected override Task HandleChallengeAsync(AuthenticationProperties properties)
+        {
+            return base.HandleChallengeAsync(properties);
+        }
         protected override Task HandleSignInAsync(ClaimsPrincipal user, AuthenticationProperties properties)
         {
             if (user.Identity.Name == "test@outlook.com")

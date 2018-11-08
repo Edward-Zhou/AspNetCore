@@ -7,4 +7,45 @@
 
 <p>Use this area to provide additional information.</p>
 
-@await Component.InvokeAsync("SimpleType", new { vm = "Test" });
+@await Component.InvokeAsync("Share", new { vm = "Test" });
+
+
+<a asp-controller="Account" asp-action="Signup" asp-route-xxx="xxx" asp-route-returnUrl="/">Sign Up</a>
+
+
+<div>
+    <input type="file" multiple name="ResolutionAttachedFile" />
+</div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $("input[name='ResolutionAttachedFile']")
+            .change(function () {
+                var data = new FormData();
+
+                $("input[name='ResolutionAttachedFile']").each(function () {
+                    var ReadyToUpload = $(this)[0].files;
+                    if (ReadyToUpload.length > 0) {
+                        $.each(ReadyToUpload, function (i, file) {
+                            data.append("ResolutionAttachedFile", file);
+                        });
+                    }
+                });
+                var test = new FormData();
+                test.append('MyIFormFile', data);
+                jQuery.ajax({
+                    url: 'https://localhost:44315/api/File/DocumentPage',
+                    data: test,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+
+            });
+            
+    </script>
+}

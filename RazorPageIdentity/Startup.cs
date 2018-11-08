@@ -18,6 +18,7 @@ using RazorPageIdentity.Extensions;
 using RazorPageIdentity.Custom;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using RazorPageIdentity.Requirements;
 
 namespace RazorPageIdentity
 {
@@ -47,6 +48,8 @@ namespace RazorPageIdentity
                 {
                     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+'#!/^%{}*";
                 })
+                .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             var descriptor =
                 new ServiceDescriptor(
@@ -70,6 +73,7 @@ namespace RazorPageIdentity
         //        );
             services.AddAuthorization(options =>
             {
+                options.AddPolicy("Read", policy => policy.AddRequirements(new ReadPermission()));
                 //var dbContext = SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder<ApplicationDbContext>(),
                 //            Configuration.GetConnectionString("DefaultConnection")).Options;
 
@@ -97,7 +101,7 @@ namespace RazorPageIdentity
                 //    lstClaimValueVM = null;
                 //}
             });
-
+            services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddTransient<CustomClaimsCookieSignInHelper<IdentityUser>>();

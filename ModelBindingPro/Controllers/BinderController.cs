@@ -12,6 +12,11 @@ namespace ModelBindingPro.Controllers
     [Route("api/Binder")]
     public class BinderController : Controller
     {
+        [HttpPost("[action]")]
+        public IActionResult DocumentPage(test _test)
+        {
+            return Ok("value");
+        }
         // GET: api/Binder
         [HttpGet]
         public IEnumerable<string> Get()
@@ -67,6 +72,15 @@ namespace ModelBindingPro.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+    }
+
+    public class test
+    {
+        public testArea MyIFormFile { get; set; }
+        public class testArea
+        {
+            public List<IFormFile> ResolutionAttachedFile { get; set; }
         }
     }
 }

@@ -16,6 +16,11 @@ namespace AutoMapperPro.Controllers
         {
             _mapper = mapper;
         }
+        public void IgnoreId()
+        {
+            Order user = new Order { Id = 1, Name = "T1" };
+            Order newUser = _mapper.Map<Order>(user);
+        }
         // GET: AutoMapper
         public ActionResult Index()
         {

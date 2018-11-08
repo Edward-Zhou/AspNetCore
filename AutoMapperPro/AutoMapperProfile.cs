@@ -14,6 +14,8 @@ namespace AutoMapperPro
             CreateMap<OrderViewModel, Order>()
                 .ForMember(dest => dest.OrderItem, opt => opt.MapFrom(src => src.OrderItemViewModel));
             CreateMap<OrderItemViewModel, OrderItem>();
+            CreateMap<Order, Order>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
         }
     }
 }

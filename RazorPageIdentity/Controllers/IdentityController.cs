@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RazorPageIdentity.Data;
 using RazorPageIdentity.Extensions;
 
 namespace RazorPageIdentity.Controllers
@@ -15,19 +19,42 @@ namespace RazorPageIdentity.Controllers
     {
         private readonly CustomClaimsCookieSignInHelper<IdentityUser> _signInHelper;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ApplicationDbContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
         public IdentityController(CustomClaimsCookieSignInHelper<IdentityUser> signInHelper
-            , UserManager<IdentityUser> userManager)
+            , UserManager<IdentityUser> userManager
+            , ApplicationDbContext context
+            , RoleManager<IdentityRole> roleManager)
         {
             _signInHelper = signInHelper;
             _userManager = userManager;
+            _context = context;
+            _roleManager = roleManager;
         }
-        public ViewResult Index() => View(User?.Claims);
+        [Authorize(Policy = "Read")]
+        public IActionResult Index()
+        {
+            var result = _roleManager.Roles.ToList();
+
+            var authService =  HttpContext.RequestServices.GetRequiredService<IAuthenticationService>();
+            return Challenge(new AuthenticationProperties { RedirectUri = "Home" });
+            return View(User?.Claims);
+        }
 
 
         [HttpGet]
         [ActionName("Create")]
         public IActionResult Create_Post()
         {
+            var query = from user in _context.Users
+                        join userRole in _context.UserRoles on user.Id equals userRole.UserId
+                        join role in _context.Roles on userRole.RoleId equals role.Id
+                        where user.LockoutEnabled == false
+                        //&& user.UserAccountIsBlocked == UserAccountIsBlocked.No
+                        && role.NormalizedName == "Admin"
+                        select user;
+            var users = query.ToList();
             return View();
         }
 
