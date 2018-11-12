@@ -117,9 +117,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWsfeAAD", "CoreWsfeAAD\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{414F2A9D-1740-4B17-849C-14ED9D08A5C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAngular", "CoreAngular\CoreAngular.csproj", "{255DF011-51FF-4964-951E-7AA7746E1EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngular", "CoreAngular\CoreAngular.csproj", "{255DF011-51FF-4964-951E-7AA7746E1EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationPro", "ConfigurationPro\ConfigurationPro.csproj", "{8045294D-657E-4D34-8BC7-A213941A714A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationPro", "ConfigurationPro\ConfigurationPro.csproj", "{8045294D-657E-4D34-8BC7-A213941A714A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClient", "HttpClient", "{35E50142-1520-4729-973A-5A3E2F1BB95F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
