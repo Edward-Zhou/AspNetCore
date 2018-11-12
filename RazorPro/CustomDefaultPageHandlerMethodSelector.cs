@@ -11,6 +11,7 @@ namespace RazorPro
 {
     public class CustomDefaultPageHandlerMethodSelector : IPageHandlerMethodSelector
     {
+
         private const string Handler = "handler";
 
         private readonly IOptions<RazorPagesOptions> _options;
