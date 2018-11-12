@@ -1,0 +1,56 @@
+﻿@page
+@model RazorPro.Pages.Person.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Person.Id" />
+            <div class="form-group">
+                <label asp-for="Person.Name" class="control-label"></label>
+                <input asp-for="Person.Name" class="form-control" />
+                <span asp-validation-for="Person.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Edit" asp-route-FirstId="abc" asp-route-SecondId="123">Test</a>
+
+    <a asp-page-handler="Edit" asp-route-FirstId="abc" asp-route-SecondId="123">Test</a>
+    <a asp-page="Edit" asp-page-handler="Edit" asp-route-FirstId="abc" asp-route-SecondId="123">Test Link</a>
+    <a asp-page="./Index">Back to List</a>
+    @Url.Page("Create", "SubGroups")
+    @Url.Page("Edit", "Edit", new { FirstId = "T1", SecondId = "T2" })
+</div>
+
+@section Scripts {
+<script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "Get",
+                data: {
+                    subId: 5,
+                },
+                                url:"/Create?handler=SubGroups",
+                @*url:"@Url.Page("Create", "SubGroups")",*@
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            });
+        });
+</script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

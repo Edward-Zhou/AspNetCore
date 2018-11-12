@@ -1,0 +1,25 @@
+﻿@page "{personId:int?}"
+@model RazorPro.Pages.Person.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Person.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
