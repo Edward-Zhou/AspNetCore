@@ -25,6 +25,12 @@ namespace SerilogPro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddSeq();
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +44,9 @@ namespace SerilogPro
                    .CreateLogger();
             loggerFactory
                 //.AddFile("Logs/app-{Date}.txt")
-                .AddSerilog(); 
+                .AddSerilog();
+
+
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();

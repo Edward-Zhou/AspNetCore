@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using RouterPro.Models;
 using RouterPro.Routers;
 
 namespace RouterPro
@@ -68,9 +69,20 @@ namespace RouterPro
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.Use(async (context,next) => {
 
+                await next.Invoke();
+                // add your own business logic to check this if statement
+                if (context.Response.StatusCode == 404)
+                {
+                        var db = context.RequestServices.GetRequiredService<RouterProContext>();
+                        var users = db.Product.ToList();
+                        await context.Response.WriteAsync("Request From Middleware");
+                }
+            });
             app.UseMvc(routes =>
             {
+                routes.Routes.Insert(0, new StringRouter(routes.DefaultHandler, serviceProvider.CreateScope().ServiceProvider));
                 //routes.Routes.Insert(0, new RouterFromAppSettings(routes.DefaultHandler,Configuration));
                 //routes.Routes.Insert(0, new SubDomainRouteHandler(serviceProvider.GetRequiredService<MvcAttributeRouteHandler>()));
                 routes.MapRoute(

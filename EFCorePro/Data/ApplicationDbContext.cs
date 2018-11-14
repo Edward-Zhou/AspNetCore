@@ -38,7 +38,7 @@ namespace EFCorePro.Data
         public DbSet<UserRoleRelationship> UserRoleRelationship { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Role> Role { get; set; }
-        public DbSet<User> User { get; set; }
+        //public DbSet<User> User { get; set; }
         public DbSet<FirstTable> FirstTable { get; set; }
         public DbSet<SecondTable> SecondTable { get; set; }
         public DbSet<MVCModel> MVCModel { get; set; }

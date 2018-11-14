@@ -17,6 +17,7 @@ namespace CoreWsfeAAD.Controllers
             var isAuthorized = User.Identity.IsAuthenticated;
             return View();
         }
+        [Authorize]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
