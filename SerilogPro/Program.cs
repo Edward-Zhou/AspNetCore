@@ -18,8 +18,9 @@ namespace SerilogPro
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
+                            .UseStartup<Startup>()
                             //.ConfigureLogging((hostingContext, builder) => builder.AddFile("Logs/app-{Date}.txt"))
-                            .UseStartup<StartupConfiguration>()
+                            //.UseStartup<StartupConfiguration>()
                             //.UseStartup<StartupEFCore>()
                             .Build();
         }

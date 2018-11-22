@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EFCorePro.Models.ManyToMany;
+using EFCorePro.Models.OneToMany;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace EFCorePro
             CreateMap<Article, ArticleViewModel>()
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.ArticleTags.Select(at => at.Tag)));
             CreateMap<Tag, TagViewModel>();
+            CreateMap<ItemInput, Item>();
+            CreateMap<ItemTagInput, ItemTag>();
+
         }
     }
 }

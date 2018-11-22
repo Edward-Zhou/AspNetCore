@@ -26,5 +26,14 @@ namespace RazorPro.Pages.Person
             Person = await _context.Person.ToListAsync();
             //RouteData.Values.Remove("personId");
         }
+        public IActionResult OnGetPartDetails()
+        {
+            return new JsonResult("hello");
+        }
+        //[Route("")]
+        public IActionResult GetPartDetails()
+        {
+            return new JsonResult("hello");
+        }
     }
 }

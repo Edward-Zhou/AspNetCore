@@ -39,8 +39,10 @@ namespace IdentityRoleClaims
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
+                .AddUserStore<CustomUserStore>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 ;
+            services.AddScoped<DbContext, ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

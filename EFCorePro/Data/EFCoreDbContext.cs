@@ -13,6 +13,7 @@ using System.Data.Common;
 using System.Data;
 using System.Reflection;
 using EFCorePro.Models.LazyLoad;
+using EFCorePro.Models.OneToMany;
 
 namespace EFCorePro.Data
 {
@@ -26,6 +27,9 @@ namespace EFCorePro.Data
         public DbSet<ClassA> ClassA { get; set; }
 
         public DbSet<ClassB> ClassB { get; set; }
+        public DbSet<ItemTag> ItemTag { get; set; }
+        public DbSet<Item> Item { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

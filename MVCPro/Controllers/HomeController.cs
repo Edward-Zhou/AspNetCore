@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MVCPro.ActionFilters;
 using MVCPro.Models;
 
 namespace MVCPro.Controllers
@@ -29,12 +30,13 @@ namespace MVCPro.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+            [TypeFilter(typeof(FileDownloadCompleteActionFilter))]
+            public IActionResult About()
+            {
+                ViewData["Message"] = "Your application description page.";
 
-            return View();
-        }
+                return View();
+            }
 
         public IActionResult Contact()
         {

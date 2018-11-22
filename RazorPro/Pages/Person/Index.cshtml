@@ -10,7 +10,7 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -36,8 +36,29 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
 
 
 <partial name="_TestPartial" />
+
+
+<input id="scanInput" type="text" placeholder="SCAN" class="form-control" />
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#scanInput").change(function () {
+                console.log('ye');
+
+                $.getJSON("?handler=PartDetails", function (data) {
+                    //Do something with the data.
+                    console.log('yay?');
+                }).fail(function (jqxhr, textStatus, error) {
+                    var err = textStatus + ", " + error;
+                    console.log("Request Failed: " + err);
+                });
+            });
+        });
+    </script>
+}
 
