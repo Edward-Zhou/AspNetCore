@@ -63,16 +63,16 @@ namespace HostInAzureWebApp
             app.UseCookiePolicy();
 
             //app.UseAuthentication();
-            if (env.IsDevelopment())
-            {
-                app.Use(async (context, next) =>
-                {
-                    var user = context.User.Identity.Name;
-                    DeveloperLogin(context).Wait();
+            //if (env.IsDevelopment())
+            //{
+            //    app.Use(async (context, next) =>
+            //    {
+            //        var user = context.User.Identity.Name;
+            //        DeveloperLogin(context).Wait();
 
-                    await next.Invoke();
-                });
-            }
+            //        await next.Invoke();
+            //    });
+            //}
 
             app.UseMvc(routes =>
             {
