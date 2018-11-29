@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Serilog;
+using SerilogPro.Extensions;
 
 namespace SerilogPro.Controllers
 {
@@ -21,7 +22,8 @@ namespace SerilogPro.Controllers
         [HttpGet]
         public IEnumerable<string> Get(string password)
         {
-
+            _log.PrefixLogDebug("Log From Prefix extension");
+            _log.PrefixLogDebug("Log From Prefix extension", "New Prefix");
             Log.Logger.Information("Hello, world!");
             _log.LogInformation(JsonConvert.SerializeObject(new string[] { "value1", "value2" }));
             return new string[] { "value1", "value2" };

@@ -40,7 +40,7 @@ namespace HostedServicePro
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            //services.AddHostedService<DbHostedService>();
+            services.AddHostedService<DbHostedService>();
             services.AddHostedService<ConsoleOutputHostedService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

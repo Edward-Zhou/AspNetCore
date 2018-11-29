@@ -28,8 +28,8 @@ namespace EFCorePro.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connection = httpContext.Request.Headers["Connectionstring"];
-            optionsBuilder.UseSqlServer(connection);
+            //var connection = httpContext.Request.Headers["Connectionstring"];
+            //optionsBuilder.UseSqlServer(connection);
         }
         public DbSet<TodoItem> TodoItem { get; set; }
         public DbSet<TodoItemDetail> TodoItemDetail { get; set; }
@@ -60,6 +60,7 @@ namespace EFCorePro.Data
                    .WithOne(t => t.Tag);
 
             builder.Query<ToDoItemVM>();
+            builder.Query<ResultDto>();
         }
     }
 }

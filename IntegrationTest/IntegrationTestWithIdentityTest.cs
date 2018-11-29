@@ -26,6 +26,7 @@ namespace IntegrationTest
             var responseString = await response.Content.ReadAsStringAsync();
 
             Assert.Contains("Send Email", responseString);
-        }
+        }        
+
     }
 }

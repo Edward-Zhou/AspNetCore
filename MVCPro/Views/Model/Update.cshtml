@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CreationDate" class="control-label"></label>
-                <input asp-for="CreationDate" class="form-control" />
+                <input asp-for="@Model.CreationDate.Value.ToString("dd.MM.yyyy")" class="form-control" />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
             @await Component.InvokeAsync("SimpleType", @Model)

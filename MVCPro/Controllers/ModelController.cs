@@ -21,12 +21,19 @@ namespace MVCPro.Controllers
         [HttpGet]
         public async Task<ActionResult> Update()
         {
-            return View(new MVCModel { NoInvoAb = 5 
-                , CreationDate = DateTime.Now
-                , MVCSubModel = new MVCSubModel {
+            var model = new MVCModel
+            {
+                NoInvoAb = 5
+                ,
+                CreationDate = DateTime.Now
+                ,
+                MVCSubModel = new MVCSubModel
+                {
                     Name = "MVCSubModel"
                 }
-            });
+            };
+            var result = model.CreationDate.Value.ToString("dd.MM.yyyy");
+            return View(model);
         }
 
         [HttpPost]

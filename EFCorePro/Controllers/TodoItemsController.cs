@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EFCorePro.Data;
 using EFCorePro.Models;
+using EFCorePro.Models.EFCore;
 
 namespace EFCorePro.Controllers
 {
@@ -22,6 +23,7 @@ namespace EFCorePro.Controllers
         // GET: TodoItems
         public async Task<IActionResult> Index()
         {
+            var result = _context.Query<ResultDto>().FromSql("exec GetDocumentBodyById {0}", 1).ToList();
             return View(await _context.TodoItem.ToListAsync());
         }
 

@@ -15,7 +15,8 @@ namespace MVCPro.Models
 
         [Display(Name = "Created on")]
         [UIHint("DateDisabled")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd.MM.yyyy}")]
+        //[DataType(DataType.DateTime)]
         public DateTime? CreationDate { get; set; }
         public MVCSubModel MVCSubModel { get; set; }
     }
