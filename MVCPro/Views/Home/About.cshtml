@@ -8,7 +8,9 @@
 <p>Use this area to provide additional information.</p>
 
 @await Component.InvokeAsync("Share", new { vm = "Test" });
-
+<form asp-controller="UserApi" asp-action="SomeApiAction" asp-route-id="2" formmethod="post">
+    <button type="submit">Request Api</button>
+</form>
 
 <a asp-controller="Account" asp-action="Signup" asp-route-xxx="xxx" asp-route-returnUrl="/">Sign Up</a>
 

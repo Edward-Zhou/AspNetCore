@@ -31,6 +31,16 @@ namespace MVCPro.Controllers
         {
             return View();
         }
+        [ParameterTypeFilter]
+        public ActionResult NoParameter()
+        {
+            return Ok("Test");
+        }
+        [ParameterTypeFilter("T1","T2")]
+        public ActionResult Parameter()
+        {
+            return Ok("Test");
+        }
 
     }
 }

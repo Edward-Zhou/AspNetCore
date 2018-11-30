@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HostInAzureWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Server.IISIntegration;
 
 namespace HostInAzureWebApp.Controllers
 {
@@ -14,7 +16,7 @@ namespace HostInAzureWebApp.Controllers
         {
             return View();
         }
-
+        [Authorize(AuthenticationSchemes = "Windows")]
         public IActionResult About()
         {
             ViewData["Message"] = User.Identity.Name; //"Your application description page.";

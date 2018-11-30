@@ -9,6 +9,11 @@ namespace MVCPro.Controllers
     [Route("api/User")]
     public class UserApiController : Controller
     {
+        [HttpPost("/someApiAction/{id}")]
+        public async Task<IActionResult> SomeApiAction(string id)
+        {
+            return RedirectToAction("Contact", "Home", new { id = id });
+        }
         [HttpGet]
         [Route("Teacher",Name = "Teacher")]
         public async Task<IEnumerable<string>> GetTeachers()

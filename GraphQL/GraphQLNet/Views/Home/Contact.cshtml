@@ -15,16 +15,3 @@
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
-
-@*@Url.Action("GetTeachers", "UserApi")
-
-@Url.RouteUrl("Teacher")
-
-<vc:admin-share>
-</vc:admin-share>
-
-@await Component.InvokeAsync(typeof(MVCPro.Areas.Admin.ShareViewComponent))
-@await Component.InvokeAsync(typeof(MVCPro.Areas.User.ShareViewComponent))
-
-@await Component.InvokeAsync("SimpleType")*@
-

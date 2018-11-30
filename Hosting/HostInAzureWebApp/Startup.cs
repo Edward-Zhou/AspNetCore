@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using HostInAzureWebApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Server.IISIntegration;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace HostInAzureWebApp
 {
@@ -42,6 +45,9 @@ namespace HostInAzureWebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //services.AddAuthentication()
+            //        .AddCookie(IISDefaults.AuthenticationScheme);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,14 +68,13 @@ namespace HostInAzureWebApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             //if (env.IsDevelopment())
             //{
             //    app.Use(async (context, next) =>
             //    {
             //        var user = context.User.Identity.Name;
             //        DeveloperLogin(context).Wait();
-
             //        await next.Invoke();
             //    });
             //}
@@ -95,7 +100,11 @@ namespace HostInAzureWebApp
 
         private async Task MockLogin(HttpContext httpContext)
         {
-            //   httpContext.Authentication.SignInAsync();
+            var identity = new ClaimsIdentity(IISDefaults.AuthenticationScheme);
+            identity.AddClaim(new Claim("Name", "Tom"));
+
+            await httpContext.SignInAsync(IISDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity));
         }
 
     }
