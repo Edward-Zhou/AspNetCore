@@ -1,4 +1,9 @@
 ﻿@*@using MVCPro.ViewComponents;*@
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Hosting.Server.Features;
+@using Microsoft.AspNetCore.Hosting;
+@inject IHttpContextAccessor HttpContextAccessor;
+@inject IHostingEnvironment HostingEnvironment;
 @{
     ViewData["Title"] = "About";
 }
@@ -7,6 +12,10 @@
 
 <p>Use this area to provide additional information.</p>
 
+
+@HttpContextAccessor.HttpContext.Request.PathBase.Value;
+@HostingEnvironment.WebRootPath;
+@HostingEnvironment.ContentRootPath;
 @await Component.InvokeAsync("Share", new { vm = "Test" });
 <form asp-controller="UserApi" asp-action="SomeApiAction" asp-route-id="2" formmethod="post">
     <button type="submit">Request Api</button>
@@ -19,7 +28,7 @@
     <input type="file" multiple name="ResolutionAttachedFile" />
 </div>
 
-@section Scripts{ 
+@section Scripts{
     <script type="text/javascript">
         $("input[name='ResolutionAttachedFile']")
             .change(function () {
@@ -48,6 +57,6 @@
                 });
 
             });
-            
+
     </script>
 }

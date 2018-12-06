@@ -41,7 +41,8 @@ namespace HostedServicePro
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddHostedService<DbHostedService>();
-            services.AddHostedService<ConsoleOutputHostedService>();
+            //services.AddHostedService<ConsoleOutputHostedService>();
+            services.AddHostedService<FileSystemWatcherHostedService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

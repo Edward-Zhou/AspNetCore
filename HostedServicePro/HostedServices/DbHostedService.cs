@@ -1,4 +1,5 @@
 ﻿using HostedServicePro.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -43,9 +44,10 @@ namespace HostedServicePro.HostedServices
                 var context =
                     scope.ServiceProvider
                         .GetRequiredService<ApplicationDbContext>();
+                context.Roles.Add(new IdentityRole($"Test_{DateTime.Now.ToLongTimeString()}"));
 
                 var user = context.Users.LastOrDefault();
-
+                
                 _logger.LogInformation(user?.UserName);
             }
         }

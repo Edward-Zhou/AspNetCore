@@ -12,7 +12,8 @@ namespace RazorPageIdentity.Pages
     {
         public void OnGet()
         {
-            
+            var claims = User.Claims.ToList();
+
         }
     }
 }

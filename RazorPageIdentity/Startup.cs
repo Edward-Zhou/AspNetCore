@@ -50,6 +50,7 @@ namespace RazorPageIdentity
                 })
                 .AddRoles<IdentityRole>()
                 .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddClaimsPrincipalFactory<CustomUserClaimsPrincipalFactory<IdentityUser>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             var descriptor =
                 new ServiceDescriptor(

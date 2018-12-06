@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
+using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,7 @@ namespace IntegrationTest
                     .AddJsonFile("appsettings.json")
                     .Build()));
             var response = await server.CreateClient().GetAsync(@"/test");
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
         }
 
         [Fact]

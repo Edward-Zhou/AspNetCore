@@ -61,6 +61,7 @@ namespace EFCorePro.Data
 
             builder.Query<ToDoItemVM>();
             builder.Query<ResultDto>();
+            builder.Query<TableNotInDbContext>();
         }
     }
 }

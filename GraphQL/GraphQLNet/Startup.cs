@@ -52,8 +52,6 @@ namespace GraphQLNet
             {
                 options.EnableMetrics = true;
                 options.ExposeExceptions = Environment.IsDevelopment();
-
-                //options.
             })
             .AddGraphQLAuthorization(options =>
             {

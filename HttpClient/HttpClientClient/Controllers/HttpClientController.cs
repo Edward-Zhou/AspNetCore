@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using HttpClientClient.HttpClients;
 using HttpClientClient.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,12 @@ namespace HttpClientClient.Controllers
     public class HttpClientController : ControllerBase
     {
         private readonly HttpClient _httpClient;
-        public HttpClientController(HttpClient httpClient)
+        private readonly ISomeClient _someClient;
+        public HttpClientController(HttpClient httpClient
+            , ISomeClient someClient)
         {
             _httpClient = httpClient;
+            _someClient = someClient;
         }
 
         public async Task CallWebApi()

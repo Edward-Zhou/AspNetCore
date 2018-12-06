@@ -64,7 +64,21 @@ namespace MVCPro
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.Use(async (context, next) => {
+                var requestPath = context.Request.Path.Value;
+                var cookies = context.Request.Cookies;
+                if (!requestPath.StartsWith("/Home/About"))
+                {
+                    await next.Invoke();
+                }
+                else
+                {
+                    await context.Response.WriteAsync("Forbidden");
+                }
+            });
+
             app.UseStaticFiles();
+
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();

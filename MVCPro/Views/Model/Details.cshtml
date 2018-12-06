@@ -6,6 +6,8 @@
 
 <h2>Details</h2>
 <input asp-for="@Model.NoInvoAb" />
+@Html.DropDownListFor(c => c.Gender, Enum.GetValues(typeof(Gender)).Cast<Gender>().Select(c => new SelectListItem { Text = c.ToString(), Value = c.ToString() } ))
+<select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
 <div>
     <h4>MVCModel</h4>
     <hr />

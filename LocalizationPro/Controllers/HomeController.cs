@@ -36,6 +36,22 @@ namespace LocalizationPro.Controllers
             return View();
         }
 
+        public IActionResult Model()
+        {
+            var result = _localizer["example@outlook.com"];
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateModel(LocalizationVM vM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Model");
+            }
+            var result = _localizer["example@outlook.com"];
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

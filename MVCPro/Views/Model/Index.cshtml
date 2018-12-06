@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVCPro.Models.Book>
+    @{
+        ViewData["Title"] = "View";
+    }
+    <!--This is the quick search box code-->
+    <form asp-action="Index" asp-controller="Model" method="get">
+        <p class="form-group">
+            Search: <input name="SearchString" class="form-control" /><br />
+            <div class="form-group">
+                <label class="radio">
+                    @Html.RadioButton("DateValueSign", Classification.NewestFirst)Newest First
+                </label>
+                <label class="radio">
+                    @Html.RadioButton("DateValueSign", Classification.OldestFirst)Oldest First
+                </label>
+                <label class="radio">
+                    @Html.RadioButton("DateValueSign", Classification.MostPopular)Most Popular
+                </label>
+                <label class="radio">
+                    @Html.RadioButton("DateValueSign", Classification.LeastPopular)Least Popular
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Search</button>
+            <a asp-action="Index" class="btn btn-danger">Show All</a>
+        </p>
+    </form>
+
+    <p>Displaying @ViewBag.SelectedBooks out of @ViewBag.TotalBooks </p>
+    <h2>View</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AverageRating)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AverageRating)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

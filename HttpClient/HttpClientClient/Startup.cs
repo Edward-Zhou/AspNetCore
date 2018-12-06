@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
+using HttpClientClient.HttpClients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +35,10 @@ namespace HttpClientClient
             });
 
             services.AddScoped<HttpClient>();
+            services.AddTransient<CancellationTokenSource>();
+            services.AddHttpClient<ISomeClient, SomeClient>(a =>
+                        a.BaseAddress = new Uri(@"https://localhost:44342/"));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

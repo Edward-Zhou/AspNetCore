@@ -1,4 +1,5 @@
 ﻿using GraphQL.Types;
+using GraphQLNet.Converters.ByteValueConverter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace GraphQLNet.Query
     {
         public MessageSchema() : base()
         {
+            RegisterValueConverter(new ByteValueConverter());
             Query = new MessageQuery();
         }
     }

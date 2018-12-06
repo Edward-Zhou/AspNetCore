@@ -9,9 +9,43 @@ namespace MVCPro.Controllers
 {
     public class ModelController : Controller
     {
-        public IActionResult Index()
+        private readonly MVCProContext _db;
+        public ModelController(MVCProContext db)
         {
-            return View();
+            _db = db;
+        }
+        public IActionResult Index(String SearchString, Classification DateValueSign)
+        {
+
+
+            var query = from r in _db.Books select r;
+
+            if (SearchString != null && SearchString != "")
+            {
+                query = query.Where(x => x.Title.Contains(SearchString));
+
+            }
+            switch (DateValueSign)
+            {
+                case Classification.NewestFirst:
+                    query = query.OrderByDescending(x => x.PublicationDate);
+                    break;
+                case Classification.OldestFirst:
+                    query = query.OrderBy(x => x.PublicationDate);
+                    break;
+                case Classification.MostPopular:
+                    query = query.OrderByDescending(x => x.AverageRating);
+                    break;
+                case Classification.LeastPopular:
+                    query = query.OrderBy(x => x.AverageRating);
+                    break;
+            }
+            List<Book> SelectedBooks = new List<Book>();
+            SelectedBooks = query.ToList();
+            ViewBag.SelectedBooks = SelectedBooks.Count();
+            ViewBag.TotalBooks = _db.Books.Count();
+
+            return View(SelectedBooks);
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -51,6 +85,20 @@ namespace MVCPro.Controllers
             translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
             translationsModel.Translations.Add(new Models.Translation { TranslationID = Guid.NewGuid(), LanguageID = Guid.NewGuid() });
             return View(translationsModel);
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(MVCModel input)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return View();
         }
     }
 }

@@ -13,5 +13,10 @@ namespace GraphQLNet.Query
         public string Content { get; set; }
 
         public DateTime SentAt { get; set; }
+
+        public byte[] Image { get; set; }
+
+        public Byte ImagePath { get; set; }
+
     }
 }
