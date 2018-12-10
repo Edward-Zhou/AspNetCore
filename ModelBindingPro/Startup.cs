@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModelBindingPro.Binders;
@@ -24,7 +25,9 @@ namespace ModelBindingPro
         {
             services.AddMvc(options => {
                 options.ModelBinderProviders.Insert(0, new MultipleFormBinderProvider());
+                options.ModelBinderProviders.Insert(0, new CustomDictionaryModelBinderProvider());
             });
+            //services.AddTransient<CustomDictionaryModelBinder<string, int>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,7 +35,7 @@ namespace ModelBindingPro
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else

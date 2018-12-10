@@ -100,5 +100,24 @@ namespace MVCPro.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult CreateTimeVM()
+        {
+            var vm = new TimeVM();
+            var time = vm.TimeFrom.ToString("hh\\:mm");
+            return View(vm);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateTimeVM(TimeVM input)
+        {
+            
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return View();
+        }
+
     }
 }

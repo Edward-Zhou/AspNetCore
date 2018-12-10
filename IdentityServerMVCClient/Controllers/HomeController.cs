@@ -13,6 +13,8 @@ namespace IdentityServerMVCClient.Controllers
     {
         public IActionResult Index()
         {
+            var isAuth = User.Identity.IsAuthenticated;
+
             return View();
         }
         [Authorize]
