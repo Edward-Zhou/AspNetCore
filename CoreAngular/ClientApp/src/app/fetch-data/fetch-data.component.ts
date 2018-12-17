@@ -16,6 +16,17 @@ export class FetchDataComponent {
 
     this.http = http;
     this.baseUrl = baseUrl;
+    var email = "test@outlook.com";
+    var password = "pwd";
+    http.post<LoginUser>(this.baseUrl + "api/SampleData/Authenticate", {
+      email,
+      password
+    }).subscribe(result => {
+
+      });
+
+
+
         http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
           this.forecasts = result;
         }, error => console.error(error));
@@ -84,4 +95,9 @@ interface WeatherForecast {
 class IUser {
   id: number;
   name: string;
+}
+
+class LoginUser {
+  email: string;
+  password: string;
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreAngular.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,14 @@ namespace CoreAngular.Controllers
         public async Task<IActionResult> UpdateModelWithOutJsonPatch(Guid id, [FromBody]TestModel modelDocument)
         {
             return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Authenticate")]
+        public IActionResult Authenticate([FromBody]LoginUser userParam)
+        {
+            return Ok(userParam);
         }
         public class WeatherForecast
         {

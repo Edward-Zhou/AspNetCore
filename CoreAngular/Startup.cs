@@ -45,7 +45,12 @@ namespace CoreAngular
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
+            app.UseCors(opt => {
+                opt.AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowAnyOrigin()
+                   .AllowCredentials();
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

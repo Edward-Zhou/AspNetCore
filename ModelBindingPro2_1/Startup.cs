@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ModelBindingPro2_1.Requirements;
 
 namespace ModelBindingPro2_1
 {
@@ -31,6 +32,9 @@ namespace ModelBindingPro2_1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddAuthorization(opt => {
+                opt.AddPolicy("MyPolicyThatUsesMyRequirement", p => p.AddRequirements(new MyRequirement()));
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

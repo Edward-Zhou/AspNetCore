@@ -10,3 +10,26 @@
     Hello &nbsp;
     World &
 </div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var coordinate = evt.coordinate;
+
+
+            var datapoints = new Array();
+            var datapt = new Object();
+            datapt.X = "123.456";
+            datapt.Y = "123.654";
+            datapoints.push(datapt);
+            var datapt1 = new Object();
+            datapt1.X = "1123.456";
+            datapt1.Y = "1123.654";
+            datapoints.push(datapt1);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "AddPointsToDB", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(datapoints));
+        });
+    </script>
+}

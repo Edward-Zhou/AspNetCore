@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -87,6 +89,28 @@ namespace IntegrationTest
             var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
+        }
+
+        [Xunit.Theory]
+        [InlineData("http://localhost/api/v1/Book/")]
+        public async Task TestHttp(string url)
+        {
+            // Arrange
+            var client = _factory.CreateClient();
+
+            // Act           
+
+            var body = "{}";
+            using (var content = new StringContent(body, Encoding.UTF8, "application/json"))
+            {
+
+                var response = await client.PostAsync(url, content);
+
+                // Assert
+                response.EnsureSuccessStatusCode(); //Failed here with internal server error
+                Xunit.Assert.Equal(StatusCodes.Status200OK,
+                    (int)(response.StatusCode));
+            }
         }
     }
 }
