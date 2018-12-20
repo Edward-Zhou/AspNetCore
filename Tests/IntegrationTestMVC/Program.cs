@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace IntegrationTestMVC
 {
     public class Program
     {
+        [DebuggerStepThrough]
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();

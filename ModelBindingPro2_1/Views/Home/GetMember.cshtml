@@ -1,0 +1,84 @@
+﻿@model ModelBindingPro2_1.Models.MemberViewModel
+
+@{
+    ViewData["Title"] = "GetMember";
+}
+
+<h2>GetMember</h2>
+
+<h4>MemberViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formAll", style = "margin-top:3%", enctype = "multipart/form-data" }))
+        {
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Personnal</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="formMember" class="row col-xs-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="col-xs-6">
+                            <div class="form-check-inline col-xs-12" style="margin-top:2%; margin-left:35%">
+                                @Html.LabelFor(model => model.Member_NameFirst)
+                                @Html.EditorFor(model => model.Member_NameFirst)
+                                @*<input type="file" class="form-control-file" name="Member_UploadPicture" id="Member_UploadPicture">*@
+                                <small id="fileHelp" class="form-text text-muted">Maximum 1024kb</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="formMember" class="row col-xs-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="col-xs-6">
+                            <div class="form-check-inline col-xs-12" style="margin-top:2%; margin-left:35%">
+                                @Html.LabelFor(model => model.Member_UploadPicture, "Upload Picture", new { htmlAttributes = new { @id = "test" } })
+                                @Html.EditorFor(model => model.Member_UploadPicture, new { htmlAttributes = new { @class = "form-control-file", @id = "Member_UploadPicture" } })
+                                @*<input type="file" class="form-control-file" name="Member_UploadPicture" id="Member_UploadPicture">*@
+                                <small id="fileHelp" class="form-text text-muted">Maximum 1024kb</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" />
+            </div>
+            
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#formAll").submit(function (event) {
+                event.preventDefault();
+
+                var formData = new FormData();
+                formData.append('Member_NameFirst', $('#Member_NameFirst').val());
+                formData.append('Member_UploadPicture', $('#Member_UploadPicture')[0].files[0]);
+            $.ajax({
+                    url: "https://localhost:44307/home/getmember",
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        //code
+                    },
+                    error: function (error) {
+                        //code
+                    }
+                });
+            })        })
+    </script>
+}

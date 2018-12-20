@@ -85,6 +85,22 @@ namespace DapperPro.Data.Migrations
                     b.ToTable("Customer");
                 });
 
+            modelBuilder.Entity("DapperPro.Models.IdentityOption.LockoutOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("AllowedForNewUsers");
+
+                    b.Property<TimeSpan>("DefaultLockoutTimeSpan");
+
+                    b.Property<int>("MaxFailedAccessAttempts");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LockoutOption");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

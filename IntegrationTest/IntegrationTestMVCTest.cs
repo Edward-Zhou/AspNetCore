@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore;
+﻿using IntegrationTestMVC;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace IntegrationTest
@@ -17,9 +20,15 @@ namespace IntegrationTest
         [Test]
         public async Task Test()
         {
+            var path = Assembly.Load(new AssemblyName("IntegrationTestMVC")).Location;
             var server = new TestServer(WebHost.CreateDefaultBuilder()
-                .UseStartup<TestStartup>()
+                                .UseContentRoot(@"D:\Edward\SourceCode\AspNetCore\Tests\IntegrationTestMVC")
+                                .UseStartup<Startup>()
                 );
+            var configuration = server.Host.Services.GetRequiredService<IConfiguration>();
+            var connection = configuration.GetConnectionString("DefaultConnection");
+            var testReg = server.Host.Services.GetRequiredService<ITestReg>();
+            var test = testReg.HelloWorld();
             var response = await server.CreateClient().GetAsync(@"/test");
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
 

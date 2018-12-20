@@ -29,8 +29,10 @@ namespace DapperPro
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            var db = services.BuildServiceProvider().GetRequiredService<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(opt => {
+                //opt.Lockout.MaxFailedAccessAttempts = db.LockoutOption.FirstOrDefault()?.MaxFailedAccessAttempts ?? 3;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.AddTransient<DbConnection>(serviceProvider => new DbConnection(Configuration.GetConnectionString("DefaultConnection")));
@@ -38,6 +40,14 @@ namespace DapperPro
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddTransient<ISecuritySettingService, SecuritySettingService>();
+            services.AddTransient<ISecuritySettingRepository, SecuritySettingRepository>();
+            var _ecuritySettingService = services.BuildServiceProvider().GetRequiredService<ISecuritySettingService>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Lockout.MaxFailedAccessAttempts = _ecuritySettingService.GetSecuritySetting()?.MaxFailedAccessAttempts ?? 3;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
