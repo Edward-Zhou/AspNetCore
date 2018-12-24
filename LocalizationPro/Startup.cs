@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using LocalizationPro.Conventions;
 using LocalizationPro.Resources;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +39,9 @@ namespace LocalizationPro
             //});
 
 
-            services.AddMvc()
+            services.AddMvc(options => {
+                //options.Conventions.Add(typeof(ApplicationDescription));
+            })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                     //.SetCompatibilityVersion(CompatibilityVersion.Version_2_0)
                     .AddDataAnnotationsLocalization();

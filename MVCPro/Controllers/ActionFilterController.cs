@@ -41,6 +41,15 @@ namespace MVCPro.Controllers
         {
             return Ok("Test");
         }
-
+        [TypeFilter(typeof(RequestLoggerActionFilter))]
+        public ActionResult RequestLogger()
+        {
+            return Ok("RequestLoggerActionFilter");
+        }
+        public ActionResult MultipleParameters()
+        {
+            var parameters = HttpContext.Request.Query;
+            return Ok(parameters.ToList());
+        }
     }
 }

@@ -41,6 +41,7 @@ namespace MVCPro.Controllers
 
         public IActionResult Contact()
         {
+            throw new Exception("Error From MVC");
             ViewData["Message"] = "Your contact page.";
 
             return View();

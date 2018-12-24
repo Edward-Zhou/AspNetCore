@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.Internal;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MVCPro.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,14 +16,26 @@ namespace MVCPro.ActionFilters
     public class RequestLoggerActionFilter : ActionFilterAttribute
     {
         private readonly ILogger _logger;
-
-        public RequestLoggerActionFilter(ILoggerFactory loggerFactory)
+        private readonly IConfiguration _configuration;
+        private readonly MVCProContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public RequestLoggerActionFilter(ILoggerFactory loggerFactory
+            , IConfiguration configuration
+            , MVCProContext context
+            , IHttpContextAccessor httpContextAccessor)
         {
             _logger = loggerFactory.CreateLogger("RequestLogger");
+            _configuration = configuration;
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            var cookies = _httpContextAccessor.HttpContext.Request.Cookies;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            var configuration = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+            var cookies = context.HttpContext.Request.Cookies;
+            var db = context.HttpContext.RequestServices.GetRequiredService<MVCProContext>();
             var request = context.HttpContext.Request;
             request.EnableRewind();
             request.Body.Position = 0;

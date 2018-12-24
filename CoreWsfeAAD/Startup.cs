@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.WsFederation;
@@ -50,6 +51,25 @@ namespace CoreWsfeAAD
 
                         // For AAD, use the App ID URI from the app registration's Properties blade:
                         options.Wtrealm = "https://taozhou.onmicrosoft.com/a231f030-43f0-4aac-8c3d-051b9219e44e";
+
+                        //options.SaveTokens = true;
+                        //options.Events.OnTicketReceived = context =>
+                        //{
+                        //    //var token = context.Properties.
+                        //    return Task.CompletedTask;
+                        //};
+                        //options.Events.OnRedirectToIdentityProvider = context =>
+                        //{
+                        //    return Task.CompletedTask;
+                        //};
+                        options.Events.OnSecurityTokenValidated = context => {
+                            var token = context.ProtocolMessage.GetToken();
+                            var identity = new ClaimsIdentity();
+                            identity.AddClaim(new Claim("token", token));
+                            context.Principal.AddIdentity(identity);
+                            return Task.CompletedTask;
+                        };
+                        options.TokenValidationParameters.SaveSigninToken = true;
                     })
                     .AddCookie();
 

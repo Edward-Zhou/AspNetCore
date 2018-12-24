@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoreWsfeAAD.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Principal;
 
 namespace CoreWsfeAAD.Controllers
 {
@@ -20,6 +21,7 @@ namespace CoreWsfeAAD.Controllers
         [Authorize]
         public IActionResult About()
         {
+            var claims = User.Claims;
             ViewData["Message"] = "Your application description page.";
 
             return View();

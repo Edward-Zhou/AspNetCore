@@ -9,6 +9,11 @@ namespace MVCPro.Controllers
     [Route("api/User")]
     public class UserApiController : Controller
     {
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Error()
+        {
+            throw new Exception("Error From MVC");
+        }
         [HttpPost("/someApiAction/{id}")]
         public async Task<IActionResult> SomeApiAction(string id)
         {
