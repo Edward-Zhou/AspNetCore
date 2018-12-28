@@ -38,8 +38,10 @@ namespace SerilogPro
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Log.Logger = new LoggerConfiguration()
-                                .WriteTo.EntityFrameworkCoreSink(app.ApplicationServices)
-                                .Enrich.FromLogContext()
+                                .ReadFrom.ConfigurationSection(Configuration.GetSection("Serilog"))
+                                //.Filter.ByIncludingOnly("StartsWith(RequestPath, '/api')")
+                                //.WriteTo.EntityFrameworkCoreSink(app.ApplicationServices)
+                                //.Enrich.FromLogContext()
                                 .CreateLogger();
             loggerFactory.AddSerilog();
             if (env.IsDevelopment())

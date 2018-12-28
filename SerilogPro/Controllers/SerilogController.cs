@@ -15,17 +15,21 @@ namespace SerilogPro.Controllers
     public class SerilogController : Controller
     {
         private readonly ILogger<SerilogController> _log;
-        public SerilogController(ILogger<SerilogController> log)
+        private readonly Serilog.ILogger _logger;
+        public SerilogController(ILogger<SerilogController> log
+            , Serilog.ILogger logger)
         {
             _log = log;
+            _logger = logger;
         }
         [HttpGet]
         public IEnumerable<string> Get(string password)
         {
-            _log.PrefixLogDebug("Log From Prefix extension");
-            _log.PrefixLogDebug("Log From Prefix extension", "New Prefix");
-            Log.Logger.Information("Hello, world!");
-            _log.LogInformation(JsonConvert.SerializeObject(new string[] { "value1", "value2" }));
+            //_log.PrefixLogDebug("Log From Prefix extension");
+            //_log.PrefixLogDebug("Log From Prefix extension", "New Prefix");
+            //Log.Logger.Information("Hello, world!");
+            //_log.LogInformation(JsonConvert.SerializeObject(new string[] { "value1", "value2" }));
+            _logger.Information("Hello, world!");
             return new string[] { "value1", "value2" };
         }
     }

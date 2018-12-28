@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SignalRServer.Hubs;
@@ -32,10 +33,14 @@ namespace SignalRServer
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddHttpsRedirection(options =>
+            {
+                //options.
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSignalR();
+            //services.AddSingleton<IUserIdProvider, NameUserIdProvider>();
             services.AddSingleton<TimeHub>();
         }
 
@@ -51,11 +56,12 @@ namespace SignalRServer
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+            app.UseAuthentication();
+            //app.UseHttpsRedirection();
+            app.UseMiddleware<MyHttpsRedirectionMiddleware>();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            //app.UseAuthentication();
             app.UseSignalR(routes => {
                 routes.MapHub<TimeHub>("/timeHub");
             });

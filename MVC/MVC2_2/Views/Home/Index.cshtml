@@ -8,3 +8,16 @@
 </div>
 
 <a id="header-pp" href="@($"/files/PP.pdf")" target="_blank">Open PDF</a>
+
+@section Scripts{ 
+    @*<script src="~/lib/moment.js/moment-with-locales.min.js"></script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var now = moment();
+            alert(now);
+            var a = moment([2008, 9]);
+            var b = moment([2007, 0]);
+            alert(a.diff(b, 'years'));
+        });
+    </script>
+}

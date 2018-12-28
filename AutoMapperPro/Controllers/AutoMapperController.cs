@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapperPro.Models;
+using AutoMapperPro.Models.Movie;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -110,6 +111,12 @@ namespace AutoMapperPro.Controllers
             {
                 return View();
             }
+        }
+        [HttpPost]
+        public void AddMovie(MovieDto movie)
+        {
+            //execption here
+            var movieDM = _mapper.Map<Movie>(movie);
         }
     }
 }

@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "moment.js@2.23.0",
+      "destination": "wwwroot/lib/moment.js/",
+      "files": [
+        "moment-with-locales.min.js",
+        //"locale/de.js"
+      ]
+    }
+  ]
+}

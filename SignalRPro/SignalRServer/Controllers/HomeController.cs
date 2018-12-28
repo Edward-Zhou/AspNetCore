@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using SignalRServer.Hubs;
@@ -20,27 +21,34 @@ namespace SignalRServer.Controllers
         }
         public IActionResult Index()
         {
-            Task.Factory.StartNew(async () =>
-            {
-                while (true)
-                {
-                    try
-                    {
-                        await _timeHub.UpdateTime(DateTime.Now.ToShortDateString());
-                        Thread.Sleep(2000);
-                    }
-                    catch (Exception ex)
-                    {
+            //Task.Factory.StartNew(async () =>
+            //{
+            //    while (true)
+            //    {
+            //        try
+            //        {
+            //            await _timeHub.UpdateTime(DateTime.Now.ToShortDateString());
+            //            Thread.Sleep(2000);
+            //        }
+            //        catch (Exception ex)
+            //        {
                         
-                    }
-                }
-            });
+            //        }
+            //    }
+            //});
             return View();
         }
-
+        [Authorize]
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = User.Identity.Name; //"Your application description page.";
+            //var hubConnectionBuilder = new HubConnectionBuilder();
+            ////var hubConnection = hubConnectionBuilder.WithUrl("http://localhost:61045/timeHub", options => {
+            ////    options.UseDefaultCredentials = true;
+            ////}).Build();
+            ////await hubConnection.StartAsync();
+            ////await hubConnection.SendAsync("UpdateTime", $"From Client");
+            //var on = hubConnection.On("ReceiveMessage", OnReceivedAction);
 
             return View();
         }

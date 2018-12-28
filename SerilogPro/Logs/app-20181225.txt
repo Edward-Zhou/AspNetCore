@@ -1,0 +1,328 @@
+2018-12-25 15:58:01.922 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 15:58:01.922 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 15:58:02.065 +08:00 [Information] Request finished in 174.3309ms 200     
+ 2018-12-25 15:58:02.655 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 15:58:02.672 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 15:58:02.676 +08:00 [Information] Log From Serialog    
+ 2018-12-25 15:58:05.623 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 15:58:05.967 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 3464.2535ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 15:58:05.981 +08:00 [Information] Request finished in 4122.9967ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:17:59.380 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:17:59.380 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:17:59.529 +08:00 [Information] Request finished in 241.7483ms 200     
+ 2018-12-25 16:18:00.124 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:18:00.134 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:18:00.137 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:18:02.743 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:18:03.067 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 3014.2453ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:18:03.081 +08:00 [Information] Request finished in 3794.1011ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:18:20.003 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:18:20.082 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:18:20.101 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:18:20.325 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:18:20.338 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:18:20.349 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 301.6529ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:18:20.358 +08:00 [Information] Request finished in 354.7828ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:19:14.303 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:19:14.356 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:19:14.370 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:19:14.377 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:19:14.385 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:19:14.394 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 82.1992ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:19:14.403 +08:00 [Information] Request finished in 98.3747ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:24:12.734 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:24:12.734 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:24:12.852 +08:00 [Information] Request finished in 207.3006ms 200     
+ 2018-12-25 16:24:13.341 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:24:13.349 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:24:13.351 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:24:15.584 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:24:15.878 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2604.7143ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:24:15.889 +08:00 [Information] Request finished in 3244.9418ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:24:26.444 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:24:26.522 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:24:26.540 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:24:26.645 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:24:26.657 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:24:26.668 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 178.0897ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:24:26.677 +08:00 [Information] Request finished in 234.0783ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:25:24.243 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:25:24.273 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:25:24.288 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:25:24.295 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:25:24.303 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:25:24.312 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 59.5094ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:25:24.322 +08:00 [Information] Request finished in 76.8053ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:27:45.393 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:27:45.393 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:27:45.393 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:27:45.638 +08:00 [Information] Request finished in 247.144ms 200     
+ 2018-12-25 16:27:46.138 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:27:46.146 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:27:46.149 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:27:46.149 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:27:46.164 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:27:46.317 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:27:46.328 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:27:46.350 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 325.9666ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:27:46.363 +08:00 [Information] Request finished in 1039.0357ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:27:48.487 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:27:48.837 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2821.8357ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:27:48.894 +08:00 [Information] Request finished in 3560.584ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:31:07.584 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:31:07.584 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:31:07.853 +08:00 [Information] Request finished in 333.8197ms 200     
+ 2018-12-25 16:31:08.230 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:31:08.237 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:31:08.239 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:31:10.578 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:31:10.880 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2718.6965ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:31:10.892 +08:00 [Information] Request finished in 3373.247ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:31:14.855 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:31:14.940 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:31:14.957 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:31:15.071 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:31:15.084 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:31:15.098 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 193.892ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:31:15.109 +08:00 [Information] Request finished in 254.9809ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:33:05.002 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:33:05.002 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:33:05.314 +08:00 [Information] Request finished in 373.9517ms 200     
+ 2018-12-25 16:33:05.700 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:33:05.712 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:33:05.714 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:33:08.053 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:33:08.371 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2733.4728ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:33:08.386 +08:00 [Information] Request finished in 3444.0065ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:33:15.362 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 16:33:15.440 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:33:15.456 +08:00 [Information] Hello, world!    
+ 2018-12-25 16:33:15.561 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:33:15.573 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:33:15.584 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 177.7769ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 16:33:15.593 +08:00 [Information] Request finished in 231.4453ms 200 application/json; charset=utf-8    
+ 2018-12-25 16:34:03.714 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:34:03.714 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:34:04.027 +08:00 [Information] Request finished in 366.4027ms 200     
+ 2018-12-25 16:34:04.394 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:34:04.402 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:34:04.404 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:34:06.653 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:34:06.964 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2630.6739ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:34:06.980 +08:00 [Information] Request finished in 3327.9206ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:36:10.766 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:36:10.766 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:36:10.895 +08:00 [Information] Request finished in 196.9459ms 200     
+ 2018-12-25 16:36:11.416 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:36:11.424 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:36:11.427 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:36:11.560 +08:00 [Information] Entity Framework Core "2.0.3-rtm-10026" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"    
+ 2018-12-25 16:36:11.755 +08:00 [Information] Executed DbCommand ("85"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?' (Size = 4000), @p4='?' (Size = 128), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?', @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 128), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?'"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+DECLARE @inserted0 TABLE ([Id] int, [_Position] [int]);
+MERGE [LogRecords] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, 0),
+(@p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, 1)) AS i ([ActionId], [ActionName], [EventId], [Exception], [Level], [LogEvent], [Message], [MessageTemplate], [RequestId], [RequestPath], [SourceContext], [TimeStamp], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([ActionId], [ActionName], [EventId], [Exception], [Level], [LogEvent], [Message], [MessageTemplate], [RequestId], [RequestPath], [SourceContext], [TimeStamp])
+VALUES (i.[ActionId], i.[ActionName], i.[EventId], i.[Exception], i.[Level], i.[LogEvent], i.[Message], i.[MessageTemplate], i.[RequestId], i.[RequestPath], i.[SourceContext], i.[TimeStamp])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted0;
+
+SELECT [t].[Id] FROM [LogRecords] t
+INNER JOIN @inserted0 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];"    
+ 2018-12-25 16:36:13.963 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:36:14.288 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2944.9959ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:36:14.304 +08:00 [Information] Request finished in 3604.2115ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:36:21.788 +08:00 [Information] Entity Framework Core "2.0.3-rtm-10026" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"    
+ 2018-12-25 16:37:12.533 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:37:12.533 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:37:12.775 +08:00 [Information] Request finished in 230.845ms 200     
+ 2018-12-25 16:37:13.180 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:37:13.187 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:37:13.189 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:37:15.538 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:37:15.855 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2746.898ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:37:15.868 +08:00 [Information] Request finished in 3397.8668ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:39:26.520 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:39:26.520 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:39:26.639 +08:00 [Information] Request finished in 184.6853ms 200     
+ 2018-12-25 16:40:05.368 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:40:05.368 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:40:05.481 +08:00 [Information] Request finished in 174.6316ms 200     
+ 2018-12-25 16:42:26.262 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:42:26.262 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:42:26.393 +08:00 [Information] Request finished in 203.7514ms 200     
+ 2018-12-25 16:49:02.043 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:49:02.043 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:49:02.154 +08:00 [Information] Request finished in 116.7156ms 200     
+ 2018-12-25 16:52:45.615 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:52:45.747 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:52:45.748 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:52:45.749 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:52:47.527 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:52:47.771 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2030.2132ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:52:47.774 +08:00 [Information] Request finished in 2163.001ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:54:15.293 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:54:15.293 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:54:15.386 +08:00 [Information] Request finished in 159.7694ms 200     
+ 2018-12-25 16:54:15.727 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:54:15.737 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:54:15.739 +08:00 [Information] Log From Serialog    
+ 2018-12-25 16:54:18.100 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:54:18.401 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2759.3053ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 16:54:18.418 +08:00 [Information] Request finished in 3189.5208ms 200 text/html; charset=utf-8    
+ 2018-12-25 16:55:21.135 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 16:55:21.135 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 16:55:21.253 +08:00 [Information] Request finished in 181.4242ms 200     
+ 2018-12-25 17:01:41.060 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:01:41.060 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:01:41.180 +08:00 [Information] Request finished in 180.5493ms 200     
+ 2018-12-25 17:02:02.091 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:02:02.091 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:02:02.223 +08:00 [Information] Request finished in 183.4603ms 200     
+ 2018-12-25 17:08:14.463 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:08:14.463 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:08:14.579 +08:00 [Information] Request finished in 183.3724ms 200     
+ 2018-12-25 17:08:42.473 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:08:42.473 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:08:42.590 +08:00 [Information] Request finished in 178.8038ms 200     
+ 2018-12-25 17:13:08.907 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:13:08.907 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:13:09.050 +08:00 [Information] Request finished in 211.8719ms 200     
+ 2018-12-25 17:13:34.011 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:13:34.011 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:13:34.132 +08:00 [Information] Request finished in 184.6663ms 200     
+ 2018-12-25 17:15:06.690 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:15:06.690 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:15:06.806 +08:00 [Information] Request finished in 202.1124ms 200     
+ 2018-12-25 17:17:20.412 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:17:20.412 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:17:20.499 +08:00 [Information] Request finished in 150.2243ms 200     
+ 2018-12-25 17:17:20.803 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:17:20.812 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:17:20.814 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:17:23.091 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:17:23.438 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2713.7373ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:17:23.454 +08:00 [Information] Request finished in 3103.571ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:20:22.142 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:20:22.142 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:20:22.221 +08:00 [Information] Request finished in 118.7632ms 200     
+ 2018-12-25 17:20:22.506 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:20:22.514 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:20:22.518 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:20:24.746 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:20:25.046 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2608.7949ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:20:25.059 +08:00 [Information] Request finished in 2956.3269ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:23:48.497 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:23:48.497 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:23:48.586 +08:00 [Information] Request finished in 152.2738ms 200     
+ 2018-12-25 17:23:48.931 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:23:48.940 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:23:48.942 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:23:51.295 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:23:51.602 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2751.076ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:23:51.616 +08:00 [Information] Request finished in 3182.1451ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:24:41.457 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:24:41.457 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:24:41.538 +08:00 [Information] Request finished in 143.5063ms 200     
+ 2018-12-25 17:24:41.849 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:24:41.856 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:24:41.858 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:24:44.151 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:24:44.444 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2670.7107ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:24:44.456 +08:00 [Information] Request finished in 3060.6116ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:27:46.437 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:27:46.437 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:27:46.515 +08:00 [Information] Request finished in 143.0692ms 200     
+ 2018-12-25 17:27:46.798 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:27:46.805 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:27:46.808 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:27:48.969 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:27:49.280 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2549.0327ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:27:49.293 +08:00 [Information] Request finished in 2919.3874ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:29:23.655 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:29:23.655 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:29:23.910 +08:00 [Information] Request finished in 305.6315ms 200     
+ 2018-12-25 17:29:56.276 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:29:56.276 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:29:56.352 +08:00 [Information] Request finished in 156.9092ms 200     
+ 2018-12-25 17:30:28.420 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:30:28.420 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:30:28.498 +08:00 [Information] Request finished in 139.5122ms 200     
+ 2018-12-25 17:31:38.822 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:31:38.822 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:31:38.906 +08:00 [Information] Request finished in 146.4695ms 200     
+ 2018-12-25 17:31:39.204 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:31:39.212 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:31:39.214 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:31:41.473 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:31:41.780 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2645.6662ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:31:41.791 +08:00 [Information] Request finished in 3031.8841ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:32:22.917 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:32:22.917 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:32:22.998 +08:00 [Information] Request finished in 149.9404ms 200     
+ 2018-12-25 17:32:23.313 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:32:23.320 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:32:23.322 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:32:25.726 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:32:26.093 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2846.868ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:32:26.108 +08:00 [Information] Request finished in 3259.3843ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:33:03.183 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:33:03.184 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:33:03.265 +08:00 [Information] Request finished in 167.2141ms 200     
+ 2018-12-25 17:33:03.590 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:33:03.598 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:33:03.600 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:33:06.073 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:33:06.401 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2894.539ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:33:06.414 +08:00 [Information] Request finished in 3313.781ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:33:23.695 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/Home/About      
+ 2018-12-25 17:33:23.735 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.About (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:33:23.959 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/About.cshtml".  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:33:23.971 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.About (SerilogPro)" in 264.6932ms  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:33:23.981 +08:00 [Information] Request finished in 286.5096ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:33:38.505 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 17:33:38.591 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:33:38.608 +08:00 [Information] Hello, world!    
+ 2018-12-25 17:33:38.728 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:33:38.740 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:33:38.753 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 203.5484ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:33:38.777 +08:00 [Information] Request finished in 256.7555ms 200 application/json; charset=utf-8    
+ 2018-12-25 17:34:07.952 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:34:07.952 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:34:08.035 +08:00 [Information] Request finished in 145.7885ms 200     
+ 2018-12-25 17:34:08.324 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:34:08.332 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:34:08.334 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:34:10.699 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:34:11.028 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2768.1967ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:34:11.040 +08:00 [Information] Request finished in 3149.8635ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:34:23.784 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/Home/About      
+ 2018-12-25 17:34:23.821 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.About (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:34:24.007 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/About.cshtml".  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:34:24.022 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.About (SerilogPro)" in 225.1329ms  SerilogPro.Controllers.HomeController.About (SerilogPro)  
+ 2018-12-25 17:34:24.030 +08:00 [Information] Request finished in 247.8971ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:36:39.682 +08:00 [Information] Request starting HTTP/1.1 DEBUG http://localhost:62937/  0    
+ 2018-12-25 17:36:39.682 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/      
+ 2018-12-25 17:36:39.765 +08:00 [Information] Request finished in 147.0423ms 200     
+ 2018-12-25 17:36:40.059 +08:00 [Information] Executing action method "SerilogPro.Controllers.HomeController.Index (SerilogPro)" with arguments (null) - ModelState is Valid  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:36:40.067 +08:00 [Information] Hello, world!  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:36:40.069 +08:00 [Information] Log From Serialog    
+ 2018-12-25 17:36:42.230 +08:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:36:42.531 +08:00 [Information] Executed action "SerilogPro.Controllers.HomeController.Index (SerilogPro)" in 2540.68ms  SerilogPro.Controllers.HomeController.Index (SerilogPro)  
+ 2018-12-25 17:36:42.544 +08:00 [Information] Request finished in 2925.0709ms 200 text/html; charset=utf-8    
+ 2018-12-25 17:37:55.752 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 17:37:55.874 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:37:56.002 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:37:56.014 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:37:56.025 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 193.8315ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:37:56.031 +08:00 [Information] Request finished in 280.6127ms 200 application/json; charset=utf-8    
+ 2018-12-25 17:38:22.866 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:62937/api/serilog      
+ 2018-12-25 17:38:22.895 +08:00 [Information] Executing action method "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" with arguments ([""]) - ModelState is Valid  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:38:22.918 +08:00 [Information] ["value1","value2"]  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:38:22.925 +08:00 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:38:22.933 +08:00 [Information] Executed action "SerilogPro.Controllers.SerilogController.Get (SerilogPro)" in 59.3226ms  SerilogPro.Controllers.SerilogController.Get (SerilogPro)  
+ 2018-12-25 17:38:22.940 +08:00 [Information] Request finished in 75.6388ms 200 application/json; charset=utf-8    
+ 

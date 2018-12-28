@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapperPro.Models;
+using AutoMapperPro.Models.Movie;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace AutoMapperPro
             CreateMap<OrderItemViewModel, OrderItem>();
             CreateMap<Order, Order>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
+
+            CreateMap<Movie, MovieDto>();
+            CreateMap<MovieDto, Movie>();
         }
     }
 }

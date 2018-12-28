@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.aspnetcore.signalr.client" Version="1.0.3" />
+    <PackageReference Include="microsoft.aspnetcore.signalr.client" Version="1.0.4" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="4.5.1" />
   </ItemGroup>
 
 </Project>
