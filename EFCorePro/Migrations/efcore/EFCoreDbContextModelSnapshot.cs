@@ -136,7 +136,7 @@ namespace EFCorePro.migrations.efcore
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ItemId");
+                    b.Property<int>("ItemId");
 
                     b.Property<int>("Name");
 
@@ -145,6 +145,38 @@ namespace EFCorePro.migrations.efcore
                     b.HasIndex("ItemId");
 
                     b.ToTable("ItemTag");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.Order.Bills", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Number");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bills");
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.Order.Payments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BillId");
+
+                    b.Property<int?>("BillsId");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BillsId");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -270,9 +302,17 @@ namespace EFCorePro.migrations.efcore
 
             modelBuilder.Entity("EFCorePro.Models.OneToMany.ItemTag", b =>
                 {
-                    b.HasOne("EFCorePro.Models.OneToMany.Item")
+                    b.HasOne("EFCorePro.Models.OneToMany.Item", "Item")
                         .WithMany("ItemTags")
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EFCorePro.Models.Order.Payments", b =>
+                {
+                    b.HasOne("EFCorePro.Models.Order.Bills", "Bills")
+                        .WithMany()
+                        .HasForeignKey("BillsId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

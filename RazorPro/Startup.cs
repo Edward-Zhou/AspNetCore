@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
+using RazorPro.Helper;
 
 namespace RazorPro
 {
@@ -43,7 +44,9 @@ namespace RazorPro
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc()
+            services.AddMvc(options => {
+                options.Filters.Add(new ModelValidationFilter());
+                    })
                     .AddRazorPagesOptions(options => {
                         //options.Conventions.AddAreaPageRoute("Downloads", "/Index","");
                     }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

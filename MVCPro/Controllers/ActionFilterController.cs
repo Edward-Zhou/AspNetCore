@@ -51,5 +51,17 @@ namespace MVCPro.Controllers
             var parameters = HttpContext.Request.Query;
             return Ok(parameters.ToList());
         }
+
+        [ServiceFilter(typeof(EnumFilter<Category>))]
+        public async Task<IActionResult> Category()
+        {
+            return Ok();
+        }
+        [ServiceFilter(typeof(EnumFilter<CategoryParent>))]
+        public async Task<IActionResult> CategoryParent()
+        {
+            return Ok();
+        }
+
     }
 }

@@ -14,6 +14,7 @@ using System.Data;
 using System.Reflection;
 using EFCorePro.Models.LazyLoad;
 using EFCorePro.Models.OneToMany;
+using EFCorePro.Models.Order;
 
 namespace EFCorePro.Data
 {
@@ -30,6 +31,8 @@ namespace EFCorePro.Data
         public DbSet<ItemTag> ItemTag { get; set; }
         public DbSet<Item> Item { get; set; }
 
+        public DbSet<Payments> Payments { get; set; }
+        public DbSet<Bills> Bills { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

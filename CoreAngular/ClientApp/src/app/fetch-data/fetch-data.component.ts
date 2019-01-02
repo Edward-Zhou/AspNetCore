@@ -25,7 +25,12 @@ export class FetchDataComponent {
 
       });
 
-
+    let subDirectory: string = "folder1/folder2/folder3";
+    let id: number = 6;
+    this.http.get(this.baseUrl + 'api/SampleData/' + id + "/")
+      .subscribe(result => { });
+    //this.http.get(this.baseUrl + 'api/SampleData/' + id + "?subDirectotry=" + subDirectory)
+    //  .subscribe(result => { });
 
         http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
           this.forecasts = result;
@@ -39,6 +44,7 @@ export class FetchDataComponent {
           console.log(result);
         }, error => console.error(error));;
     this.changeActive();
+    this.LoadData();
   }
       previousFormModel() {
         //const formModel = this.testForm.value;
@@ -83,6 +89,21 @@ export class FetchDataComponent {
     //}, error => console.error(error));
   }
 
+  public getArtistsList(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(this.baseUrl +
+      'api/SAMPLEDATA/ListArtists');
+  }
+
+  public LoadData() {
+    this.getArtistsList().subscribe((d) => {
+      console.log("this is loaddata");
+      console.log(d);
+      var artists: Array<Artist>;
+      artists = d;
+      console.log(artists);
+    });
+  }
+
 }
 
 interface WeatherForecast {
@@ -101,3 +122,23 @@ class LoginUser {
   email: string;
   password: string;
 }
+
+class Artist {
+  id: number;
+  name: string;
+  date_of_birth: Date;
+  all_songs: Song[];
+  greatest_hits: Song[];
+  image_url: string;
+  band_members: BandMember[];
+}
+export class Song {
+  id: number;
+  name: string;
+  lyrics: string;
+  date_released: Date;
+}
+export class BandMember {
+  id: number;
+  member: string;
+} 

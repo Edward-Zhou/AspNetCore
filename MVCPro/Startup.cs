@@ -66,6 +66,8 @@ namespace MVCPro
 
             services.AddSingleton<IExceptionService, ExceptionService>();
             services.AddSingleton<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>();
+
+            services.AddScoped(typeof(EnumFilter<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

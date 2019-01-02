@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreAngular.Model;
@@ -64,6 +66,42 @@ namespace CoreAngular.Controllers
                 }
             }
         }
+        [HttpGet("{id:int}/{*subDirectotry}")]
+        [ResponseCache(NoStore = true)]
+        public async Task<IActionResult> Get(int id, string subDirectotry)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Produces("application/json")]
+        [Route("ListArtists")]
+        public JsonResult ListArtists()
+        {
+            var artists = new List<Artist> {
+                new Artist{ id = 1, fake = new FakeData{ id = 11, name = "F1" } },
+                new Artist{ id = 2, fake = new FakeData{ id = 22, name = "F2" } }
+            };
+            return Json(new { results = artists });
+        }
+
+        public class Artist
+        {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int id { get; set; }
+            public FakeData fake { get; set; }
+        }
+
+        public class FakeData
+        {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int id { get; set; }
+            public string name { get; set; }
+        }
+
+
         public class TestModel
         {
             public string Title { get; set; }
