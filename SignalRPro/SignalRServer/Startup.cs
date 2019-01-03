@@ -56,12 +56,11 @@ namespace SignalRServer
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseHttpsRedirection();
             app.UseAuthentication();
-            //app.UseHttpsRedirection();
-            app.UseMiddleware<MyHttpsRedirectionMiddleware>();
+            //app.UseMiddleware<MyHttpsRedirectionMiddleware>();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            //app.UseAuthentication();
             app.UseSignalR(routes => {
                 routes.MapHub<TimeHub>("/timeHub");
             });

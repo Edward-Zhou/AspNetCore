@@ -22,11 +22,20 @@ namespace SignalRConsoleClient
         private static async void Connect()
         {
             var hubConnectionBuilder = new HubConnectionBuilder();
+            #region Worked
+            //var hubConnection = hubConnectionBuilder.WithUrl("https://localhost:44381/timeHub", options => {
+            //    options.UseDefaultCredentials = true;
+            //    //options.Credentials = new NetworkCredential("xx", "xx", "xx");
+            //}).Build();
+            #endregion
+            #region Non-Worked
             //https://localhost:44381/timeHub
-            var hubConnection = hubConnectionBuilder.WithUrl("http://localhost:61045", options => {
+            var hubConnection = hubConnectionBuilder.WithUrl("http://localhost:61045/timeHub", options =>
+            {
                 options.UseDefaultCredentials = true;
-                //options.Credentials = new NetworkCredential("edwardzh", "Ed@1122", "wicresoft");
+                //options.Credentials = new NetworkCredential("xx", "xx", "xx");
             }).Build();
+            #endregion
             await hubConnection.StartAsync();
             await hubConnection.SendAsync("UpdateTime", $"From Client");
             var on = hubConnection.On("ReceiveMessage", OnReceivedAction);
