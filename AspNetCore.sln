@@ -165,9 +165,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicelib", "WCFService\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingCore", "LoggingCore\LoggingCore.csproj", "{EF655E9F-C833-4321-9ADE-3486828E24E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebClient", "SignalRWebClient\SignalRWebClient.csproj", "{3550ABFE-CEAF-48F7-BCC2-09445A3BA0C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebClient", "SignalRWebClient\SignalRWebClient.csproj", "{3550ABFE-CEAF-48F7-BCC2-09445A3BA0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftAuth", "MicrosoftAuth\MicrosoftAuth.csproj", "{69CAE7A1-F5CD-4507-95D2-DA0431567CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicrosoftAuth", "MicrosoftAuth\MicrosoftAuth.csproj", "{69CAE7A1-F5CD-4507-95D2-DA0431567CA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

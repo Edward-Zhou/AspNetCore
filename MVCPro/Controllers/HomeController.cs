@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVCPro.ActionFilters;
+using MVCPro.Extensions;
 using MVCPro.Models;
 
 namespace MVCPro.Controllers
 {
     public class HomeController : Controller
     {
+        public async Task<IActionResult> ChangePassword()
+        {
+            ViewData["Test"] = "Hello Test";
+            return PartialView("_ChangePasswordPartial").WithTitle("Change Password");
+        }
         public async Task<IActionResult> Index()
         {
             //var t = Task.Run(() => { return Task.FromException(new Exception("ab")); });
@@ -82,6 +88,20 @@ namespace MVCPro.Controllers
         public async Task<IActionResult> RequestLoggerActionFilter()
         {
             return CreatedAtAction("Contact", null);
+        }
+
+        public async Task<IActionResult> Login(string redirectUrl)
+        {
+            HttpContext.Session.SetInt32("BranchId", 1);
+            HttpContext.Session.SetString("Admin", "Admin");
+            return Redirect(redirectUrl);
+            //return Ok("Successfully Login");
+        }
+
+        public async Task<IActionResult> ValidateEmail([FromQuery(Name = "Input.Email")]string Email)
+        {
+            bool result = false;
+            return Json(result);
         }
     }
 }

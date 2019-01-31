@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVCPro.ActionFilters;
+using MVCPro.Models;
 
 namespace MVCPro.Controllers
 {
@@ -42,9 +43,14 @@ namespace MVCPro.Controllers
             return Ok("Test");
         }
         [TypeFilter(typeof(RequestLoggerActionFilter))]
-        public ActionResult RequestLogger()
+        public List<Book> RequestLogger()
         {
-            return Ok("RequestLoggerActionFilter");
+            //return Ok("RequestLoggerActionFilter");
+            return new List<Book>{
+                new Book{ Id = 1, Title = "B1"},
+                new Book{ Id = 2, Title = "B2"},
+                new Book{ Id = 3, Title = "B3"}
+            };
         }
         public ActionResult MultipleParameters()
         {
@@ -62,6 +68,11 @@ namespace MVCPro.Controllers
         {
             return Ok();
         }
-
+        [ServiceFilter(typeof(ParameterReplaceActionFilter))]
+        [HttpGet]
+        public async Task<IActionResult> ParameterReplace(string dataComingFromActionFilter)
+        {
+            return Ok();
+        }
     }
 }

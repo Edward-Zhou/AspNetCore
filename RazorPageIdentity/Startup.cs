@@ -103,7 +103,9 @@ namespace RazorPageIdentity
                 //}
             });
             services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(opt => {
+                //opt.Filters.Add(new fil)
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddTransient<CustomClaimsCookieSignInHelper<IdentityUser>>();
         }

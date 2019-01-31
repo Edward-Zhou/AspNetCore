@@ -65,9 +65,9 @@ namespace SerilogPro
             //       .WriteTo.RollingFile("Logs/app-{Date}.txt", outputTemplate: output)
             //       .WriteTo.Seq("http://edwardcore.westus.cloudapp.azure.com:5341",apiKey: "K5HzACIfiQxr67CKlvUj")
             //       .CreateLogger();
-            //loggerFactory
-            //    //.AddFile("Logs/app-{Date}.txt")
-            //    .AddSerilog();
+            loggerFactory
+                //.AddFile("Logs/app-{Date}.txt")
+                .AddSerilog();
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();

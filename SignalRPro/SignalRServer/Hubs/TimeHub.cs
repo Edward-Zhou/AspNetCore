@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using SignalRServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace SignalRServer.Hubs
             {
                 await Clients?.All.SendAsync("ReceiveMessage", message);
             }
+        }
+        public Task SendMessage(Message message)
+        {
+            // ... some logic
+            return Task.CompletedTask;
         }
     }
 }

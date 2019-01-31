@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoreAngular.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -84,7 +85,26 @@ namespace CoreAngular.Controllers
             };
             return Json(new { results = artists });
         }
+        [HttpPut("[Action]/{id}")]
+        public async Task<ActionResult> LinkItemToIcon(int id, IFormFile file)
+        {
+            return Ok();
+        }
+        //[HttpGet("[action]")]
+        //public IActionResult GetItems([FromQuery]FilterPagination filterPagination)
+        //{
+        //    var request = HttpContext.Request.Query;
+        //    // ... get items from db with specified filter and pagination
+        //    return Ok();
+        //}
 
+        [HttpGet("[action]")]
+        public IActionResult GetItems([ModelBinder(typeof(NestedModelBinder<Filter>))]Filter filter, [ModelBinder(typeof(NestedModelBinder<Pagination>))]Pagination pagination)
+        {
+            var request = HttpContext.Request.Query;
+            // ... get items from db with specified filter and pagination
+            return Ok();
+        }
         public class Artist
         {
             [Key]

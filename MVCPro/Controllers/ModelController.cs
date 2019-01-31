@@ -118,6 +118,28 @@ namespace MVCPro.Controllers
             }
             return View();
         }
-
+        [HttpGet]
+        public IActionResult ValidationModelCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ValidationModelCreate(ValidationModel input)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return View();
+        }
+        [HttpGet(nameof(Location))]
+        public async Task<IActionResult> Location(LocationQueryParameters queryParams)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new BadRequestObjectResult(ModelState);
+            }
+            return StatusCode(200);
+        }
     }
 }

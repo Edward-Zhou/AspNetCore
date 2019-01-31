@@ -52,13 +52,30 @@ namespace CoreJwt
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                
 
             }).AddJwtBearer(configureOptions =>
             {
                 configureOptions.ClaimsIssuer = "Issuer";
                 configureOptions.TokenValidationParameters = tokenValidationParameters;
                 configureOptions.SaveToken = true;
+                
+                configureOptions.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        if (context.Request.Method.Equals("GET"))
+                        {
+                            context.Response.Redirect("/login");
+                            return Task.FromResult(0);
+                        }
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context => {
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
             // api user claim policy

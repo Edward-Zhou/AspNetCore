@@ -46,11 +46,12 @@ namespace MVCPro
             //services.AddScoped<TokenAuthorizeFilter>();
             services.AddSingleton<IAuthorizationPolicyProvider, LEMClaimPolicyProvider>();
             services.AddSingleton<IAuthorizationHandler, LEMClaimPolicyHandler>();
-            //services.AddScoped<RequestLoggerActionFilter>();
+            services.AddScoped<RequestLoggerActionFilter>();
             //services.AddTransient((serviceProvider)=> new Claim { Type = "T1", Value = "V1" });
             services.AddResponseCaching(options => {
                 //options.
             });
+            services.AddScoped<ResponseFilter>();
             services.AddMvc(c =>
                             {
                                 c.CacheProfiles.Add("Never",
@@ -62,12 +63,15 @@ namespace MVCPro
                                 //c.Filters.Add(typeof(RequestLoggerActionFilter));
                                 //c.Filters.Add(typeof(ClaimRequirementFilter));
                                 //c.Filters.Add(new ClaimRequirementFilter(new Claim { Type = "T1", Value = "V1" }));
+                                c.Filters.Add(typeof(ResponseFilter));
                             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSingleton<IExceptionService, ExceptionService>();
             services.AddSingleton<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>();
 
             services.AddScoped(typeof(EnumFilter<>));
+            services.AddScoped<ParameterReplaceActionFilter>();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -111,7 +115,7 @@ namespace MVCPro
             });
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();

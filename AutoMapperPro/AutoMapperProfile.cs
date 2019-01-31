@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapperPro.Models;
+using AutoMapperPro.Models.AccountSubscription;
 using AutoMapperPro.Models.Movie;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,22 @@ namespace AutoMapperPro
 
             CreateMap<Movie, MovieDto>();
             CreateMap<MovieDto, Movie>();
+            CreateMap<IList<AccountSubscription>, IList<AccountSubscriptionDto>>()
+                   .ConstructUsing(list => list.GroupBy(g => new { g.CustomerNumber })
+                       .Select(s => new AccountSubscriptionDto
+                       {
+                           CustomerNumber = s.Key.CustomerNumber,
+                           AccountList = s.Select(t => t.AccountNumber).ToList()
+                       }).ToList()
+                   );
+            CreateMap<IPagedList<AccountSubscription>, IPagedList<AccountSubscriptionDto>>()
+                .ConstructUsing(source => source.Items.GroupBy(g => new { g.CustomerNumber })
+                    .Select(s => new AccountSubscriptionDto
+                    {
+                        CustomerNumber = s.Key.CustomerNumber,
+                        AccountList = s.Select(t => t.AccountNumber).ToList()
+                    }).ToPagedList(source.PageIndex, source.PageSize, source.IndexFrom)
+                );
         }
     }
 }

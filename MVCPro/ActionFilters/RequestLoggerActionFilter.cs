@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,6 +48,16 @@ namespace MVCPro.ActionFilters
             }
 
             base.OnActionExecuting(context);
+        }
+
+        public override void OnResultExecuted(ResultExecutedContext context)
+        {
+            base.OnResultExecuted(context);
+
+            var result = (ObjectResult)context.Result;
+
+            var obj = Activator.CreateInstance(result.DeclaredType);
+            obj = result.Value;
         }
     }
 }

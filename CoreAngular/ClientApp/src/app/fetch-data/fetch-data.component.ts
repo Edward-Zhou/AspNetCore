@@ -4,16 +4,27 @@ import { compare } from 'fast-json-patch';
 import { calcBindingFlags } from '@angular/core/src/view/util';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
+import axios, { AxiosInstance } from 'axios';
+import * as qs from 'qs';
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
+  private axiosClient: AxiosInstance;
   public forecasts: WeatherForecast[];
   private http: HttpClient;
   private baseUrl: string;
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-
+    this.axiosClient = axios.create({
+      timeout: 3000,
+      headers: {
+        "X-Initialized-At": Date.now().toString()
+      },
+      paramsSerializer: function (params) {
+        return qs.stringify(params, { encode: true });
+      }
+    });
     this.http = http;
     this.baseUrl = baseUrl;
     var email = "test@outlook.com";
@@ -69,7 +80,21 @@ export class FetchDataComponent {
 
         return retVal;
   }
-
+  selectedFile : File = null;
+  onSelectedFile(e){
+    this.selectedFile = e.target.files[0];
+  }
+  linkItem(){
+    var formData = new FormData();
+    formData.append("file", this.selectedFile, this.selectedFile.name)
+    this.LinkItemToIcon(1, formData).subscribe(
+      r => console.log(r),
+      err => console.log(err)
+    )
+  }
+  LinkItemToIcon(id, formData) {
+    return this.http.put(`api/SampleData/LinkItemToIcon/` + id, formData);
+  }
   changeActive() {
       var data = new IUser();
       data.id = 1;
@@ -93,7 +118,20 @@ export class FetchDataComponent {
     return this.http.get<Artist[]>(this.baseUrl +
       'api/SAMPLEDATA/ListArtists');
   }
-
+  public getItems() {
+    axios.get(this.baseUrl + 'api/SampleData/GetItems', {
+      params: {
+        filter: {
+          isActive: true,
+          name: 'test123'
+        },
+        pagination: {
+          page: 5,
+          itemsPerPage: 10
+        }
+      }
+    })
+  }
   public LoadData() {
     this.getArtistsList().subscribe((d) => {
       console.log("this is loaddata");
@@ -104,6 +142,11 @@ export class FetchDataComponent {
     });
   }
 
+}
+
+interface UploadFile {
+  id: number;
+  file: File;
 }
 
 interface WeatherForecast {

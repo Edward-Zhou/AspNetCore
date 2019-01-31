@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>fe7731d1-24af-4e56-b73b-a428955fd0fa</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,14 +10,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="External\cat.jpg">
+    <Content Include="External\Snes\cat.jpg">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="wwwroot\Archive\User2\" />
+    <Folder Include="wwwroot\Archive\User1\" />
   </ItemGroup>
 
 </Project>

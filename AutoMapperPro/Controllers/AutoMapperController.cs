@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapperPro.Models;
+using AutoMapperPro.Models.AccountSubscription;
 using AutoMapperPro.Models.Movie;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoMapperPro.Controllers
 {
@@ -117,6 +119,24 @@ namespace AutoMapperPro.Controllers
         {
             //execption here
             var movieDM = _mapper.Map<Movie>(movie);
+        }
+
+        public IActionResult AccountSubscription()
+        {
+            List<AccountSubscription> accountSubscriptions = new List<AccountSubscription> {
+                new AccountSubscription{ Id = 1, AccountNumber = 10, CustomerNumber = 100 },
+                new AccountSubscription{ Id = 2, AccountNumber = 20, CustomerNumber = 200 },
+                new AccountSubscription{ Id = 3, AccountNumber = 20, CustomerNumber = 100 }
+            };
+            //List<AccountSubscriptionDto> accountSubscriptionDtos = _mapper.Map<List<AccountSubscriptionDto>>(accountSubscriptions);
+            //IPagedList<AccountSubscriptionDto> pagedListDto = accountSubscriptionDtos.ToPagedList
+
+            IPagedList<AccountSubscription> pagedList = accountSubscriptions.ToPagedList(0,5);
+            var result = _mapper.Map<IPagedList<AccountSubscriptionDto>>(pagedList);
+            //return DomainResult<IPagedList<AccountSubscriptionDto>>
+            //        .Success(_mapper.Map<IPagedList<AccountSubscriptionDto>>(await _repository.
+            //        GetPagedListAsync(pageIndex, pageSize, cancellationToken: ctx)));
+            return Ok();
         }
     }
 }

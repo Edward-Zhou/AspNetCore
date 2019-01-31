@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoreJwt.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace CoreJwt.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize(Policy = "ApiUser")]
+        //[Authorize(Policy = "ApiUser")]
         public IActionResult Index()
         {
             var userClaims = User.Claims.ToList();
@@ -24,7 +25,7 @@ namespace CoreJwt.Controllers
 
             return View();
         }
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

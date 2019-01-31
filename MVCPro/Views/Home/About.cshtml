@@ -30,6 +30,25 @@
 
 @section Scripts{
     <script type="text/javascript">
+        function() {
+            var u1 = new {
+                "FileName": "f1",
+                "FilePath": "p1",
+                "Users": "jack",
+
+            };
+            $.ajax({
+                url: 'https://localhost:44355/api/comments/saveviewusers',
+                data: JSON.stringify(request),
+                cache: false,
+                contentType: "application/json",
+                processData: false,
+                type: 'POST',
+                success: function (data) {
+                    alert(data);
+                }
+            });
+        }
         $("input[name='ResolutionAttachedFile']")
             .change(function () {
                 var data = new FormData();
