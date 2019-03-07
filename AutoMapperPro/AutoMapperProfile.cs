@@ -14,6 +14,12 @@ namespace AutoMapperPro
     {
         public AutoMapperProfile()
         {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Client, ClientDto>()
+                   .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.Name))
+                   .ForMember(dest => dest.CompanyStreet, opt => opt.MapFrom(src => src.Company.Street));
+            });
             CreateMap<OrderViewModel, Order>()
                 .ForMember(dest => dest.OrderItem, opt => opt.MapFrom(src => src.OrderItemViewModel));
             CreateMap<OrderItemViewModel, OrderItem>();

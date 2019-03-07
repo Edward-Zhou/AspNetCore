@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using LocalizationPro.Resources;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,8 +34,8 @@ namespace LocalizationPro
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                     .AddDataAnnotationsLocalization(options =>
                     {
-                        //options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResource));
-                    });
+                        options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResource));
+                    }).AddDataAnnotationsLocalization();
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 var supportedCultures = new[]

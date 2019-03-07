@@ -4,6 +4,9 @@
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
+
+{{shortener ? shortener.url : "" }}
+
 <table class='table' *ngIf="forecasts">
   <thead>
     <tr>
@@ -25,4 +28,4 @@
 
 <input type="file" (change)="onSelectedFile($event)" name="file">
 <input type="button" (click)="linkItem()">
-<input type="button" (click)="getItems()" value="getItems"/>
+<input type="button" (click)="getItems()" value="getItems" />

@@ -12,9 +12,12 @@ namespace LocalizationPro.Controllers
     public class HomeController : Controller
     {
         private readonly IStringLocalizer<HomeController> _localizer;
-        public HomeController(IStringLocalizer<HomeController> localizer)
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
+        public HomeController(IStringLocalizer<HomeController> localizer
+            , IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
         }
         public IActionResult Index()
         {
@@ -41,9 +44,15 @@ namespace LocalizationPro.Controllers
             var result = _localizer["example@outlook.com"];
             return View();
         }
+        public IActionResult CreateModel()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult CreateModel(LocalizationVM vM)
         {
+            var l = _sharedLocalizer["Requiredbb"];
             if (!ModelState.IsValid)
             {
                 return View("Model");

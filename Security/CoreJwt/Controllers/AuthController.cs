@@ -23,7 +23,8 @@ namespace CoreJwt.Controllers
             var tokeOptions = new JwtSecurityToken(
                 issuer: "Issuer",
                 audience: "Audience",
-                claims: new List<Claim>() { new Claim("rol", "api_access") },
+                claims: new List<Claim>() { new Claim("rol", "api_access"),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, "Admin")},
                 expires: DateTime.Now.AddMinutes(25),
                 signingCredentials: signinCredentials
             );

@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 namespace CoreAngular.Model
 {
+    public class UserVM
+    {
+        public string UserName { get; set; }
+    }
+
     public class User
     {
         public int Id { get; set; }

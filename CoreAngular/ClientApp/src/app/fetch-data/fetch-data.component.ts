@@ -15,6 +15,8 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
   private http: HttpClient;
   private baseUrl: string;
+  private apiURL = this.baseUrl + "api/My/Generate";
+  private shortener: Shortn //= { url:""};
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.axiosClient = axios.create({
       timeout: 3000,
@@ -56,6 +58,8 @@ export class FetchDataComponent {
         }, error => console.error(error));;
     this.changeActive();
     this.LoadData();
+    this.RequestShortn();
+
   }
       previousFormModel() {
         //const formModel = this.testForm.value;
@@ -141,9 +145,21 @@ export class FetchDataComponent {
       console.log(artists);
     });
   }
+  public RequestShortn() {
+    this.shortenUrl2(this.apiURL).toPromise()
+      .then(res => this.shortener = res as Shortn);
+  }
+  shortenUrl2(url: string): Observable<Shortn> {
+    //alert("desde servicio: " + url);
+    let shortener = { Url: url };
+    return this.http.post<Shortn>("https://localhost:44320/api/My/Generate", shortener);
+  }
 
 }
+export interface Shortn {
 
+  url: string;
+}
 interface UploadFile {
   id: number;
   file: File;

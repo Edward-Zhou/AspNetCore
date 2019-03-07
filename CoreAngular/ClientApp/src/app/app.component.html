@@ -5,6 +5,13 @@
     </div>
     <div class='col-sm-9 body-content'>
       <router-outlet></router-outlet>
+      <form #useradd='ngForm' (ngSubmit)="Add(useradd)" style="width:50%">
+        <label for="name">UserName</label>
+        <input type="text" name="UserName" [(ngModel)]="User.UserName" maxlength="50" id="UserName">
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 </div>
+
+

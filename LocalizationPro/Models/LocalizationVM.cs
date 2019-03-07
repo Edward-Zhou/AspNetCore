@@ -11,7 +11,7 @@ namespace LocalizationPro.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [Display(Name = "Email", Prompt = "example@outlook.com")]
-        [Required(ErrorMessage = "RequiredAA")]
+        [Required(ErrorMessage = "Requiredbb")]
         //[MaxLength(1, ErrorMessage = "RequiredAA")]
         public string Email { get; set; }
     }

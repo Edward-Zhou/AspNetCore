@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MicrosoftAuth.Models;
 
@@ -11,8 +12,10 @@ namespace MicrosoftAuth.Controllers
 {
     public class HomeController : Controller
     {
+        //private readonly SignInManager
         public IActionResult Index()
         {
+            var user = User;
             return View();
         }
         [Authorize]
@@ -22,7 +25,7 @@ namespace MicrosoftAuth.Controllers
 
             return View();
         }
-
+        [HttpGet(template: "CC")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
@@ -42,7 +45,7 @@ namespace MicrosoftAuth.Controllers
         }
         public async Task<IActionResult> CallBack()
         {
-            return Ok();
+            return RedirectToAction("Index");
         }
     }
 }

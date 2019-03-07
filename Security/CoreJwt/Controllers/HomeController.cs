@@ -22,6 +22,7 @@ namespace CoreJwt.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+            var claims = User.Claims;
 
             return View();
         }
@@ -29,10 +30,10 @@ namespace CoreJwt.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
+            var claims = User.Claims;
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();

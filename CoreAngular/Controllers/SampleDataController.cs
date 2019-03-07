@@ -45,7 +45,11 @@ namespace CoreAngular.Controllers
         {
             return Ok();
         }
-
+        [HttpPost("~/api/My/Generate")]
+        public async Task<Shortn> Generate([FromBody]Shortn shortn)
+        {
+            return shortn;
+        }
         [AllowAnonymous]
         [HttpPost]
         [Route("Authenticate")]

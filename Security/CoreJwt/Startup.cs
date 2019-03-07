@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Security.Claims;
 
 namespace CoreJwt
 {
@@ -47,7 +48,7 @@ namespace CoreJwt
 
                 RequireExpirationTime = false,
                 ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero
+                ClockSkew = TimeSpan.Zero,
             };
             services.AddAuthentication(options =>
             {
@@ -60,7 +61,6 @@ namespace CoreJwt
                 configureOptions.ClaimsIssuer = "Issuer";
                 configureOptions.TokenValidationParameters = tokenValidationParameters;
                 configureOptions.SaveToken = true;
-                
                 configureOptions.Events = new JwtBearerEvents
                 {
                     OnAuthenticationFailed = context =>
@@ -82,6 +82,7 @@ namespace CoreJwt
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ApiUser", policy => policy.RequireClaim("rol", "api_access"));
+                options.AddPolicy("Admin", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, "Admin"));
             });
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -121,7 +122,7 @@ namespace CoreJwt
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            //app.UseJwtBearerAuthentication(options);
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

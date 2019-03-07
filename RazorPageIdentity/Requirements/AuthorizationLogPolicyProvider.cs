@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LocalizationPro
+namespace RazorPageIdentity.Requirements
 {
-    public class SharedResource
+    public class AuthorizationLogPolicyProvider
     {
     }
 }
